@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { BASE_URL } from "../util/config";
 
 interface Props {
   tool: CollectionEntry<"tools">;
@@ -9,7 +10,7 @@ const { tool } = Astro.props;
 const { title, description, tags, category, image } = tool.data;
 const searchBlob = [title, description, category, ...tags].join(" ").toLowerCase();
 const initials = category.slice(0, 2).toUpperCase();
-const href = `/tool/${tool.id}`;
+const href = `${BASE_URL}/tool/${tool.id}`;
 ---
 
 <a href={href} class="tool-card" data-category={category} data-search={searchBlob}>

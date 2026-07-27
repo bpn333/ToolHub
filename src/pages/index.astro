@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import ToolCard from "../components/ToolCard.astro";
 import { getCollection } from "astro:content";
+import { BASE_URL } from "../util/config";
 
 const allTools = await getCollection("tools");
 const categories = [...new Set(allTools.map((t) => t.data.category))].sort((a, b) =>
@@ -20,7 +21,7 @@ const categoryCount = categories.length;
 <Layout>
   <header class="sticky top-0 z-30 border-b border-line bg-paper/90 backdrop-blur">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <a href="/" class="font-display text-2xl font-bold tracking-tight text-ink">
+      <a href={BASE_URL} class="font-display text-2xl font-bold tracking-tight text-ink">
         Tool<span class="text-accent">Hub</span>
       </a>
       <button
