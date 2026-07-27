@@ -12,6 +12,8 @@ const tools = defineCollection({
     description: z.string(),
     tags: z.array(z.string()),
     category: z.string(),
+    image: z.string().optional(),
+    url: z.string().optional(),
   }),
 });
 

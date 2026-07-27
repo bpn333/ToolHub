@@ -6,6 +6,7 @@ tags:
   - formatter
   - validator
 category: Developer Tools
+image: https://cdn.beeceptor.com/assets/images/community-mocks-services/json-file.png
 ---
 
 # JSON Formatter
