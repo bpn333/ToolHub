@@ -1,6 +1,5 @@
 {
   "name": "tools",
-  "homepage": "https://bpn.localplayer.dev/ToolHub",
   "type": "module",
   "version": "0.0.1",
   "engines": {
