@@ -33,6 +33,9 @@ const { Content } = await render(tool);
       <img
         src={image}
         alt={title}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
         class="mt-8 max-h-80 w-full rounded-md border border-line bg-surface object-contain"
       />
     )}
