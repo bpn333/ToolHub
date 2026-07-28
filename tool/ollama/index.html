@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Free and open-source platform for running large language models locally with a simple command-line interface and REST API."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Ollama — ToolHub</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = stored || (prefersDark ? "dark" : "light");
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script><link rel="stylesheet" href="/assets/_astro_content.CuO3RHaO.css"></head><body class="bg-paper text-ink font-body antialiased"><main class="mx-auto max-w-3xl px-6 py-16"><div><a href="/" class="font-mono text-xs text-ink-soft hover:text-accent">&larr; Back to ToolHub</a></div><div class="mt-6"><span class="index-tab w-fit">AI Development</span></div><h1 class="mt-4 font-display text-3xl font-bold text-ink">Ollama</h1><p class="mt-3 text-base text-ink-soft">Free and open-source platform for running large language models locally with a simple command-line interface and REST API.</p><img src="https://ollama.com/public/ollama.png" alt="Ollama" loading="eager" fetchpriority="high" decoding="async" class="mt-8 max-h-80 w-full rounded-md border border-line bg-surface object-contain"><div class="mt-8 rounded-lg border border-line bg-surface p-4"><div class="flex flex-col gap-4 sm:flex-row items-center justify-between"><div><p class="font-mono text-sm text-accent-2">https://ollama.com</p></div><a href="https://ollama.com" target="_blank" rel="noopener noreferrer" class="rounded-md border-2 border-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent">Open Website</a></div></div><div class="prose-toolhub prose prose-sm mt-10"><h1 id="ollama">Ollama</h1>
+<p><strong>Ollama</strong> is a free and open-source platform that makes it easy to download, manage, and run large language models (LLMs) locally on your own computer. Instead of relying on cloud-based AI services, Ollama allows developers, researchers, and enthusiasts to run powerful models such as Llama, Gemma, Mistral, Qwen, DeepSeek, Phi, and many others with a simple command-line interface and a lightweight local server.</p>
+<p>One of Ollama’s greatest strengths is its simplicity. Running an AI model can often involve complicated dependencies, GPU configuration, and model management. Ollama removes much of that complexity, letting users start chatting with or integrating a model using just a few commands.</p>
+<p>Whether you’re experimenting with AI, building applications, or working with sensitive data that should never leave your machine, Ollama provides an accessible and developer-friendly way to use modern language models offline.</p>
+<hr>
+<h2 id="-high-level-capabilities">🌟 High-Level Capabilities</h2>
+<ul>
+<li><strong>Run AI Models Locally:</strong> Download and execute large language models without relying on cloud services.</li>
+<li><strong>Model Management:</strong> Install, update, organize, and remove models with simple commands.</li>
+<li><strong>REST API:</strong> Expose local models through an API for integration into applications and services.</li>
+<li><strong>Cross-Platform:</strong> Available for macOS, Linux, and Windows.</li>
+<li><strong>Offline AI:</strong> Continue using models without an internet connection after downloading them.</li>
+<li><strong>Custom Models:</strong> Build and share customized models using Modelfiles.</li>
+</ul>
+<hr>
+<h2 id="-what-it-helps-you-do">🤖 What It Helps You Do</h2>
+<p>Ollama transforms your computer into a private AI server.</p>
+<p>Instead of sending prompts to external providers, applications communicate with a language model running directly on your machine. This improves privacy, reduces dependency on internet connectivity, and often lowers long-term operating costs for personal projects.</p>
+<p>Developers frequently use Ollama to power chatbots, code assistants, writing tools, document search systems, AI agents, desktop applications, and automation workflows.</p>
+<p>Because the models run locally, you have complete control over which models are used, how they’re configured, and when they’re updated.</p>
+<hr>
+<h2 id="-why-developers-love-ollama">🚀 Why Developers Love Ollama</h2>
+<p>Running local AI models used to be difficult.</p>
+<p>Finding compatible model files, installing inference engines, configuring hardware acceleration, and exposing an API often required significant technical knowledge.</p>
+<p>Ollama streamlines this entire process.</p>
+<p>Installing a model is often as simple as:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">ollama</span><span style="color:#9ECBFF"> run</span><span style="color:#9ECBFF"> llama3</span></span></code></pre>
+<p>Behind that single command, Ollama downloads the model, prepares it, launches an inference server if necessary, and starts an interactive chat session.</p>
+<p>This straightforward workflow allows developers to spend less time configuring infrastructure and more time building AI-powered applications.</p>
+<hr>
+<h2 id="-huge-model-ecosystem">🧠 Huge Model Ecosystem</h2>
+<p>Ollama supports a growing collection of popular open-source models covering many different use cases.</p>
+<p>Common categories include:</p>
+<ul>
+<li>General-purpose assistants</li>
+<li>Programming and code generation</li>
+<li>Mathematical reasoning</li>
+<li>Creative writing</li>
+<li>Translation</li>
+<li>Research assistance</li>
+<li>Vision-capable models</li>
+<li>Small models optimized for laptops</li>
+<li>Large models for high-performance workstations</li>
+</ul>
+<p>As the open-source AI ecosystem evolves, new models are frequently added, making Ollama an excellent platform for experimenting with the latest advances in local AI.</p>
+<hr>
+<h2 id="-simple-api-integration">⚡ Simple API Integration</h2>
+<p>In addition to its command-line interface, Ollama automatically provides a local REST API.</p>
+<p>Applications can send prompts using standard HTTP requests and receive structured responses, making integration straightforward regardless of programming language.</p>
+<p>This makes Ollama an excellent backend for:</p>
+<ul>
+<li>Desktop applications</li>
+<li>Web applications</li>
+<li>AI-powered IDE extensions</li>
+<li>Personal assistants</li>
+<li>Retrieval-Augmented Generation (RAG) systems</li>
+<li>Automation scripts</li>
+<li>Internal company tools</li>
+<li>Home lab projects</li>
+</ul>
+<p>Many AI frameworks and libraries also support Ollama directly, allowing developers to swap between cloud-hosted and local models with minimal code changes.</p>
+<hr>
+<h2 id="-privacy-first">🔒 Privacy First</h2>
+<p>One of Ollama’s biggest advantages is privacy.</p>
+<p>Since models execute locally, your prompts, documents, conversations, and generated responses remain on your own computer unless you explicitly share them.</p>
+<p>This makes Ollama particularly valuable for:</p>
+<ul>
+<li>Confidential business documents</li>
+<li>Source code analysis</li>
+<li>Research notes</li>
+<li>Internal knowledge bases</li>
+<li>Personal journals</li>
+<li>Offline development environments</li>
+</ul>
+<p>For organizations with strict security requirements, local inference can significantly reduce concerns around sending sensitive information to third-party services.</p>
+<hr>
+<h2 id="-common-workflows">📦 Common Workflows</h2>
+<ul>
+<li><strong>AI Chat:</strong> Run conversational assistants locally.</li>
+<li><strong>Coding Assistance:</strong> Generate, explain, debug, and review code.</li>
+<li><strong>Document Analysis:</strong> Summarize, search, and answer questions from local files.</li>
+<li><strong>Writing Support:</strong> Draft articles, documentation, and reports.</li>
+<li><strong>Application Development:</strong> Integrate local AI into web, desktop, or mobile applications.</li>
+<li><strong>RAG Systems:</strong> Combine language models with private knowledge bases.</li>
+<li><strong>Automation:</strong> Power AI-driven scripts and developer workflows.</li>
+</ul>
+<hr>
+<h2 id="-tips-for-better-performance">💡 Tips for Better Performance</h2>
+<ul>
+<li>Choose models that match your available RAM and GPU memory.</li>
+<li>Use quantized models when running on consumer hardware.</li>
+<li>Keep frequently used models installed locally to avoid repeated downloads.</li>
+<li>Experiment with different models, as each excels at different tasks.</li>
+<li>Use the REST API when integrating Ollama into your own applications.</li>
+<li>Update Ollama regularly to benefit from new model support and performance improvements.</li>
+</ul>
+<hr>
+<h2 id="-who-it-is-great-for">🧠 Who It Is Great For</h2>
+<p>Ollama is ideal for developers, AI enthusiasts, students, researchers, hobbyists, and organizations that want the flexibility of running powerful language models locally.</p>
+<p>Whether you’re building an AI-powered application, experimenting with open-source models, creating private assistants, or simply learning how modern language models work, Ollama provides one of the easiest ways to get started without depending on external AI services.</p>
+<p>Its combination of simplicity, privacy, broad model support, local API, and active open-source community has made Ollama one of the most popular tools for local AI development.</p>
+</div><div class="mt-10 flex flex-wrap gap-2"><span class="font-mono text-xs text-ink-soft">#ollama</span><span class="font-mono text-xs text-ink-soft">#llm</span><span class="font-mono text-xs text-ink-soft">#ai</span><span class="font-mono text-xs text-ink-soft">#generative-ai</span><span class="font-mono text-xs text-ink-soft">#local-ai</span><span class="font-mono text-xs text-ink-soft">#machine-learning</span><span class="font-mono text-xs text-ink-soft">#inference</span><span class="font-mono text-xs text-ink-soft">#open-source</span></div></main></body></html><script>(function(){const toolId = "ollama";
+
+  function addRecent(id) {
+    const current = JSON.parse(localStorage.getItem("toolhub:recentlyViewed") ?? "[]")?.filter((h) => h !== id);
+    current.unshift(id);
+    localStorage.setItem("toolhub:recentlyViewed", JSON.stringify(current.slice(0, 6)));
+  }
+  addRecent(toolId);
+})();</script>

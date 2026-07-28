@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Free, open-source, and highly configurable media player designed for high-quality video playback, advanced customization, and powerful scripting."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>mpv — ToolHub</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = stored || (prefersDark ? "dark" : "light");
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script><link rel="stylesheet" href="/assets/_astro_content.CuO3RHaO.css"></head><body class="bg-paper text-ink font-body antialiased"><main class="mx-auto max-w-3xl px-6 py-16"><div><a href="/" class="font-mono text-xs text-ink-soft hover:text-accent">&larr; Back to ToolHub</a></div><div class="mt-6"><span class="index-tab w-fit">Media Players</span></div><h1 class="mt-4 font-display text-3xl font-bold text-ink">mpv</h1><p class="mt-3 text-base text-ink-soft">Free, open-source, and highly configurable media player designed for high-quality video playback, advanced customization, and powerful scripting.</p><img src="https://mpv.io/images/mpv-screenshot-0935decb.png" alt="mpv" loading="eager" fetchpriority="high" decoding="async" class="mt-8 max-h-80 w-full rounded-md border border-line bg-surface object-contain"><div class="mt-8 rounded-lg border border-line bg-surface p-4"><div class="flex flex-col gap-4 sm:flex-row items-center justify-between"><div><p class="font-mono text-sm text-accent-2">https://mpv.io</p></div><a href="https://mpv.io" target="_blank" rel="noopener noreferrer" class="rounded-md border-2 border-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent">Open Website</a></div></div><div class="prose-toolhub prose prose-sm mt-10"><h1 id="mpv">mpv</h1>
+<p><strong>mpv</strong> is a free and open-source media player built for people who care about performance, quality, and control. While it can play virtually any video or audio file like traditional media players, its real strength lies in its minimal design, exceptional playback engine, advanced video rendering, and nearly limitless customization. Powered by FFmpeg, mpv supports an enormous range of multimedia formats out of the box without requiring additional codec packs or plugins.</p>
+<p>Unlike many media players that focus on large graphical interfaces packed with menus, mpv follows a different philosophy. It keeps the interface intentionally simple and puts the emphasis on smooth playback, keyboard-driven workflows, hardware acceleration, scripting, and configuration. The result is a media player trusted by developers, Linux users, enthusiasts, content creators, and anyone who wants complete control over their playback experience.</p>
+<hr>
+<h2 id="-high-level-capabilities">🌟 High-Level Capabilities</h2>
+<ul>
+<li><strong>Universal Playback:</strong> Play virtually every modern and legacy audio or video format supported by FFmpeg.</li>
+<li><strong>High-Quality Video Rendering:</strong> Advanced scaling algorithms, HDR support, color management, and hardware acceleration.</li>
+<li><strong>Powerful Configuration:</strong> Customize nearly every aspect of playback through configuration files and command-line options.</li>
+<li><strong>Scripting Support:</strong> Extend functionality with JavaScript and Lua scripts for automation and new features.</li>
+<li><strong>Cross-Platform:</strong> Available for Windows, Linux, macOS, BSD, and numerous community-maintained ports.</li>
+</ul>
+<hr>
+<h2 id="️-what-it-helps-you-do">🎞️ What It Helps You Do</h2>
+<p>mpv is designed to remove friction from media playback. Whether you’re watching high-resolution movies, previewing video edits, reviewing recorded footage, or simply enjoying music, mpv focuses on making playback fast, reliable, and visually accurate.</p>
+<p>One of its biggest strengths is how effortlessly it handles demanding media files. Large 4K videos, high bitrate recordings, anime with styled subtitles, Blu-ray remuxes, HDR content, and uncommon codecs are all handled with remarkable stability. Instead of forcing users to install codec packs or additional software, mpv relies on FFmpeg’s extensive format support to simply open and play almost anything.</p>
+<p>For technical users, mpv becomes much more than a video player. It integrates well with scripts, command-line workflows, media servers, download managers, and automation tools. Many applications even embed mpv internally because of its excellent playback engine and reliability.</p>
+<hr>
+<h2 id="-why-mpv-stands-out">🚀 Why mpv Stands Out</h2>
+<p>What separates mpv from most media players is its philosophy of doing one thing exceptionally well: playing media with maximum quality and minimum overhead.</p>
+<p>The interface is intentionally minimal. There are no unnecessary menus competing for attention, no advertisements, and no bundled software. Instead, every part of the player is focused on smooth playback, responsiveness, and efficiency.</p>
+<p>Video quality is another major reason users choose mpv. It supports modern GPU rendering pipelines, high-quality scaling filters, interpolation, hardware decoding, HDR playback, color correction, and accurate subtitle rendering. These features make it especially popular among users who want their movies and videos to look as good as possible.</p>
+<p>The player is also incredibly lightweight. Despite supporting professional-grade playback features, it starts quickly, consumes relatively little memory, and performs exceptionally well on modern hardware.</p>
+<hr>
+<h2 id="-built-for-power-users">⚡ Built for Power Users</h2>
+<p>Although beginners can simply drag a file into mpv and press play, the software truly shines for users who enjoy customizing their tools.</p>
+<p>Almost every behavior can be configured.</p>
+<p>Want different keyboard shortcuts?</p>
+<p>Need automatic subtitle loading?</p>
+<p>Prefer custom shaders?</p>
+<p>Want automatic screenshots?</p>
+<p>Need chapter navigation changes?</p>
+<p>Interested in advanced video filters?</p>
+<p>Nearly all of these can be configured through simple text files or optional scripts.</p>
+<p>Because of this flexibility, no two mpv installations have to be identical. Users can create a setup tailored perfectly to movies, anime, local media libraries, streaming, editing workflows, or accessibility requirements.</p>
+<hr>
+<h2 id="-rich-plugin-and-script-ecosystem">🧩 Rich Plugin and Script Ecosystem</h2>
+<p>One of mpv’s greatest strengths is its active community.</p>
+<p>Hundreds of community-created scripts add features such as:</p>
+<ul>
+<li>Automatic sponsor skipping</li>
+<li>Enhanced subtitle search</li>
+<li>Better playlist management</li>
+<li>YouTube integration</li>
+<li>Video thumbnail previews</li>
+<li>Media information overlays</li>
+<li>Chapter navigation improvements</li>
+<li>Screenshot enhancements</li>
+<li>Anime-focused playback utilities</li>
+<li>Custom on-screen interfaces</li>
+</ul>
+<p>Rather than forcing every feature into the core application, mpv allows users to install only what they need, keeping the player lightweight while remaining incredibly powerful.</p>
+<hr>
+<h2 id="-common-workflows">📦 Common Workflows</h2>
+<ul>
+<li><strong>High-Quality Movie Playback:</strong> Watch HD, 4K, HDR, and Blu-ray content with excellent rendering quality.</li>
+<li><strong>Anime Viewing:</strong> Display advanced ASS subtitles accurately with excellent timing and styling support.</li>
+<li><strong>Video Review:</strong> Quickly inspect recordings, gameplay footage, drone videos, or camera captures.</li>
+<li><strong>Streaming Playback:</strong> Open direct media URLs and network streams with minimal setup.</li>
+<li><strong>Developer Workflows:</strong> Integrate mpv into scripts, automation pipelines, or custom applications.</li>
+<li><strong>Content Creation:</strong> Preview exported videos before publishing or editing.</li>
+<li><strong>Music Playback:</strong> Listen to audio files, albums, podcasts, or playlists with gapless playback support.</li>
+</ul>
+<hr>
+<h2 id="-tips-for-better-playback">💡 Tips for Better Playback</h2>
+<ul>
+<li>Enable hardware decoding to reduce CPU usage when playing high-resolution videos.</li>
+<li>Explore the official configuration files to customize shortcuts, subtitles, and playback behavior.</li>
+<li>Install community scripts to unlock additional functionality without slowing down the player.</li>
+<li>Use high-quality GPU scaling if you frequently watch lower-resolution content.</li>
+<li>Learn a few keyboard shortcuts to navigate videos much faster than using traditional interfaces.</li>
+<li>Keep mpv updated to benefit from improvements in FFmpeg, rendering quality, and hardware compatibility.</li>
+</ul>
+<hr>
+<h2 id="-who-it-is-great-for">🧠 Who It Is Great For</h2>
+<p>mpv is an excellent choice for anyone who wants a fast, modern, and highly capable media player. It is particularly popular among developers, Linux users, enthusiasts, home theater users, anime fans, video editors, and professionals who value reliability and playback quality.</p>
+<p>If your goal is simply to double-click a video and watch it, mpv handles that beautifully. But if you ever decide to customize your experience, automate workflows, improve video quality, or integrate a media player into a larger toolchain, mpv grows with you instead of getting in your way.</p>
+<p>For many experienced users, mpv becomes the last media player they ever need to install. Its combination of exceptional playback quality, extensive format support, lightweight design, active development, and unmatched configurability has earned it a reputation as one of the finest open-source media players available today.</p>
+</div><div class="mt-10 flex flex-wrap gap-2"><span class="font-mono text-xs text-ink-soft">#mpv</span><span class="font-mono text-xs text-ink-soft">#media-player</span><span class="font-mono text-xs text-ink-soft">#video-player</span><span class="font-mono text-xs text-ink-soft">#open-source</span><span class="font-mono text-xs text-ink-soft">#playback</span><span class="font-mono text-xs text-ink-soft">#scripting</span><span class="font-mono text-xs text-ink-soft">#ffmpeg</span></div></main></body></html><script>(function(){const toolId = "mpv";
+
+  function addRecent(id) {
+    const current = JSON.parse(localStorage.getItem("toolhub:recentlyViewed") ?? "[]")?.filter((h) => h !== id);
+    current.unshift(id);
+    localStorage.setItem("toolhub:recentlyViewed", JSON.stringify(current.slice(0, 6)));
+  }
+  addRecent(toolId);
+})();</script>

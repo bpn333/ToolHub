@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Free and open-source multimedia framework for recording, converting, streaming, editing, and processing audio and video from the command line."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>FFmpeg — ToolHub</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = stored || (prefersDark ? "dark" : "light");
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script><link rel="stylesheet" href="/assets/_astro_content.CuO3RHaO.css"></head><body class="bg-paper text-ink font-body antialiased"><main class="mx-auto max-w-3xl px-6 py-16"><div><a href="/" class="font-mono text-xs text-ink-soft hover:text-accent">&larr; Back to ToolHub</a></div><div class="mt-6"><span class="index-tab w-fit">Media Processing</span></div><h1 class="mt-4 font-display text-3xl font-bold text-ink">FFmpeg</h1><p class="mt-3 text-base text-ink-soft">Free and open-source multimedia framework for recording, converting, streaming, editing, and processing audio and video from the command line.</p><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/FFmpeg_8.0_screenshot.webp" alt="FFmpeg" loading="eager" fetchpriority="high" decoding="async" class="mt-8 max-h-80 w-full rounded-md border border-line bg-surface object-contain"><div class="mt-8 rounded-lg border border-line bg-surface p-4"><div class="flex flex-col gap-4 sm:flex-row items-center justify-between"><div><p class="font-mono text-sm text-accent-2">https://ffmpeg.org</p></div><a href="https://ffmpeg.org" target="_blank" rel="noopener noreferrer" class="rounded-md border-2 border-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent">Open Website</a></div></div><div class="prose-toolhub prose prose-sm mt-10"><h1 id="ffmpeg">FFmpeg</h1>
+<p><strong>FFmpeg</strong> is the industry-standard open-source multimedia framework for processing audio and video. Unlike traditional media players or video editors, FFmpeg is a command-line tool and software library capable of recording, converting, editing, streaming, compressing, analyzing, and manipulating virtually any media format. It powers countless applications behind the scenes, from professional video editing software and streaming platforms to screen recorders, media servers, and online video converters.</p>
+<p>If you’ve ever uploaded a video to a website, streamed live content, or converted a movie to another format, there’s a good chance FFmpeg was involved somewhere in the pipeline.</p>
+<hr>
+<h2 id="-high-level-capabilities">🌟 High-Level Capabilities</h2>
+<ul>
+<li><strong>Media Conversion:</strong> Convert between hundreds of audio and video formats.</li>
+<li><strong>Video Encoding:</strong> Encode videos using codecs like H.264, H.265, AV1, VP9, and more.</li>
+<li><strong>Audio Processing:</strong> Convert, normalize, trim, mix, and enhance audio files.</li>
+<li><strong>Video Editing:</strong> Cut, merge, resize, crop, rotate, and filter videos without a full editor.</li>
+<li><strong>Streaming:</strong> Capture, transmit, and receive live media streams.</li>
+<li><strong>Recording:</strong> Record screens, webcams, microphones, and network streams.</li>
+<li><strong>Automation:</strong> Process thousands of media files using scripts and batch operations.</li>
+</ul>
+<hr>
+<h2 id="-what-it-helps-you-do">🎥 What It Helps You Do</h2>
+<p>FFmpeg is often described as the “Swiss Army knife” of multimedia because it can perform an enormous variety of media-related tasks from a single command.</p>
+<p>Need to convert an MKV file to MP4?</p>
+<p>Compress a video for sharing?</p>
+<p>Extract audio from a movie?</p>
+<p>Resize hundreds of videos?</p>
+<p>Generate GIFs?</p>
+<p>Merge subtitles?</p>
+<p>Create thumbnails?</p>
+<p>Record your screen?</p>
+<p>FFmpeg can accomplish all of these tasks efficiently, often without requiring a graphical interface.</p>
+<p>Because it is scriptable, it is widely used in automated workflows where thousands of files need to be processed consistently and quickly.</p>
+<hr>
+<h2 id="-why-ffmpeg-is-so-widely-used">🚀 Why FFmpeg Is So Widely Used</h2>
+<p>Few pieces of software have influenced modern multimedia as much as FFmpeg.</p>
+<p>Its libraries are embedded inside countless commercial and open-source applications. Popular video editors, streaming platforms, media players, broadcasting software, and online conversion services all rely on FFmpeg for encoding, decoding, and media processing.</p>
+<p>Developers choose FFmpeg because it supports an extraordinary number of codecs and container formats while maintaining excellent performance and reliability.</p>
+<p>For technical users, it offers precise control over nearly every aspect of audio and video processing. For software developers, it provides battle-tested libraries that eliminate the need to build multimedia functionality from scratch.</p>
+<hr>
+<h2 id="-a-complete-multimedia-toolkit">⚡ A Complete Multimedia Toolkit</h2>
+<p>Although many users think of FFmpeg as a video converter, it is actually a complete multimedia framework.</p>
+<p>It can:</p>
+<ul>
+<li>Convert videos between formats</li>
+<li>Encode and decode media</li>
+<li>Compress large video files</li>
+<li>Extract audio from video</li>
+<li>Merge audio and video tracks</li>
+<li>Join multiple videos together</li>
+<li>Split long videos into smaller clips</li>
+<li>Resize and crop videos</li>
+<li>Rotate and flip recordings</li>
+<li>Burn subtitles into videos</li>
+<li>Add watermarks and overlays</li>
+<li>Capture desktop recordings</li>
+<li>Record webcams and microphones</li>
+<li>Generate thumbnails</li>
+<li>Create GIF animations</li>
+<li>Stream media to online platforms</li>
+<li>Analyze media metadata</li>
+<li>Repair damaged media files in many situations</li>
+</ul>
+<p>These capabilities make FFmpeg an essential tool for developers, creators, broadcasters, and system administrators.</p>
+<hr>
+<h2 id="-built-for-automation">💻 Built for Automation</h2>
+<p>One of FFmpeg’s greatest strengths is automation.</p>
+<p>Because everything can be performed from the command line, it integrates naturally with shell scripts, Python programs, Node.js applications, CI/CD pipelines, media servers, and cloud infrastructure.</p>
+<p>Instead of manually editing files one by one, users can write a single command or script that processes hundreds or even thousands of videos automatically.</p>
+<p>This makes FFmpeg the foundation of many video hosting platforms, surveillance systems, transcoding servers, and content management systems.</p>
+<hr>
+<h2 id="-common-workflows">📦 Common Workflows</h2>
+<ul>
+<li><strong>Video Conversion:</strong> Convert media into formats compatible with phones, websites, or TVs.</li>
+<li><strong>Compression:</strong> Reduce file sizes while maintaining visual quality.</li>
+<li><strong>Audio Extraction:</strong> Save music, dialogue, or podcasts from video files.</li>
+<li><strong>Screen Recording:</strong> Capture desktop sessions for tutorials, demonstrations, or presentations.</li>
+<li><strong>Streaming:</strong> Send live video to streaming services or internal media servers.</li>
+<li><strong>Batch Processing:</strong> Automatically process large collections of media files.</li>
+<li><strong>Content Publishing:</strong> Prepare videos for YouTube, social media, or online courses.</li>
+</ul>
+<hr>
+<h2 id="️-powerful-filters">⚙️ Powerful Filters</h2>
+<p>FFmpeg includes one of the most advanced multimedia filter systems available.</p>
+<p>With filters, you can:</p>
+<ul>
+<li>Crop videos</li>
+<li>Resize footage</li>
+<li>Blur sensitive information</li>
+<li>Sharpen images</li>
+<li>Adjust brightness and contrast</li>
+<li>Normalize audio</li>
+<li>Remove silence</li>
+<li>Overlay images</li>
+<li>Add text</li>
+<li>Apply transitions</li>
+<li>Stack multiple videos</li>
+<li>Create picture-in-picture effects</li>
+</ul>
+<p>Many professional editing tasks that normally require graphical software can be automated with FFmpeg filters.</p>
+<hr>
+<h2 id="-tips-for-getting-started">💡 Tips for Getting Started</h2>
+<ul>
+<li>Learn a few basic commands before exploring advanced filters.</li>
+<li>Use hardware acceleration when supported to speed up encoding.</li>
+<li>Test encoding settings on short clips before processing large videos.</li>
+<li>Keep FFmpeg updated to benefit from new codecs and performance improvements.</li>
+<li>Combine FFmpeg with scripts to automate repetitive multimedia tasks.</li>
+<li>Read command documentation carefully, as FFmpeg offers hundreds of configurable options.</li>
+</ul>
+<hr>
+<h2 id="-who-it-is-great-for">🧠 Who It Is Great For</h2>
+<p>FFmpeg is ideal for developers, video creators, broadcasters, system administrators, educators, DevOps engineers, and anyone who works with multimedia at scale.</p>
+<p>Beginners may initially find the command-line interface intimidating, but its flexibility and performance quickly become invaluable. Whether you’re converting a single video, building a streaming platform, automating a media workflow, or powering an entire video processing service, FFmpeg provides the tools needed to handle virtually any multimedia task.</p>
+<p>Its unmatched codec support, extensive feature set, cross-platform availability, active development, and foundational role in the multimedia ecosystem have made FFmpeg one of the most important open-source software projects ever created.</p>
+</div><div class="mt-10 flex flex-wrap gap-2"><span class="font-mono text-xs text-ink-soft">#ffmpeg</span><span class="font-mono text-xs text-ink-soft">#video</span><span class="font-mono text-xs text-ink-soft">#audio</span><span class="font-mono text-xs text-ink-soft">#transcoding</span><span class="font-mono text-xs text-ink-soft">#media</span><span class="font-mono text-xs text-ink-soft">#command-line</span><span class="font-mono text-xs text-ink-soft">#encoding</span><span class="font-mono text-xs text-ink-soft">#open-source</span></div></main></body></html><script>(function(){const toolId = "ffmpeg";
+
+  function addRecent(id) {
+    const current = JSON.parse(localStorage.getItem("toolhub:recentlyViewed") ?? "[]")?.filter((h) => h !== id);
+    current.unshift(id);
+    localStorage.setItem("toolhub:recentlyViewed", JSON.stringify(current.slice(0, 6)));
+  }
+  addRecent(toolId);
+})();</script>
