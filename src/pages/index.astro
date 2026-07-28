@@ -16,6 +16,19 @@ const grouped = categories.map((category) => ({
 
 const toolCount = allTools.length;
 const categoryCount = categories.length;
+
+// Serializable data for client-side search + recently-viewed.
+// NOTE: adjust `href` below if your tool detail page uses a different route.
+const toolsData = allTools.map((t) => ({
+  id: t.id,
+  title: t.data.title,
+  description: t.data.description,
+  tags: t.data.tags,
+  category: t.data.category,
+  image: t.data.image ?? null,
+  url: t.data.url ?? null,
+  href: `${BASE_URL}/tool/${t.id}`,
+}));
 ---
 
 <Layout>
@@ -42,8 +55,12 @@ const categoryCount = categories.length;
 
   <main>
     <!-- HERO -->
-    <section class="relative overflow-hidden blueprint-grid">
-      <div class="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+    <!-- IMPORTANT: overflow-hidden lives on the decorative background layer only,
+         NOT on this outer section — otherwise the search dropdown gets clipped. -->
+    <section class="relative">
+      <div class="pointer-events-none absolute inset-0 overflow-hidden blueprint-grid"></div>
+
+      <div class="relative mx-auto max-w-6xl px-6 py-20 sm:py-28">
         <div class="relative mx-auto max-w-3xl border border-line bg-surface/70 px-8 py-12 backdrop-blur sm:px-14 sm:py-16">
           <span class="crop-mark tl"></span>
           <span class="crop-mark tr"></span>
@@ -62,7 +79,7 @@ const categoryCount = categories.length;
             Search by name, tag, or category — no digging required.
           </p>
 
-          <div class="mt-8 relative">
+          <div class="relative mt-8">
             <svg class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-soft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="7" />
               <path d="m21 21-4.3-4.3" />
@@ -70,15 +87,34 @@ const categoryCount = categories.length;
             <input
               id="tool-search"
               type="text"
+              autocomplete="off"
               placeholder="Search tools, tags, categories…"
               class="w-full rounded-md border border-line bg-surface py-3 pl-11 pr-4 font-body text-sm text-ink placeholder:text-ink-soft outline-none transition focus:border-accent"
             />
+            <ul
+              id="search-suggestions"
+              class="absolute left-0 right-0 top-full z-50 mt-2 hidden max-h-80 overflow-y-auto rounded-md border border-line bg-surface shadow-xl"
+            ></ul>
           </div>
 
           <p class="mt-4 font-mono text-xs text-ink-soft">
             Showing <span id="result-count">{toolCount}</span> of {toolCount} tools
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- RECENTLY VIEWED -->
+    <section id="recent-section" class="hidden border-b border-line bg-surface">
+      <div class="mx-auto max-w-6xl px-6 py-10">
+        <div class="mb-6 flex items-center gap-4">
+          <span class="index-tab">Recently Viewed</span>
+          <span class="h-px flex-1 bg-line"></span>
+          <button id="clear-recent" class="font-mono text-xs text-ink-soft hover:text-accent">
+            Clear
+          </button>
+        </div>
+        <div id="recent-grid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
       </div>
     </section>
 
@@ -123,10 +159,35 @@ const categoryCount = categories.length;
       ToolHub — {toolCount} tools, sorted and searchable.
     </div>
   </footer>
+
+  <!-- Serialized tool data for client-side search + recently-viewed rendering -->
+  <script type="application/json" id="tools-data" set:html={JSON.stringify(toolsData)} />
 </Layout>
 
 <script>
-  const searchInput = document.getElementById("tool-search") as HTMLInputElement | null;
+  type ToolRecord = {
+    id: string;
+    title: string;
+    description: string;
+    tags: string[];
+    category: string;
+    image: string | null;
+    url: string | null;
+    href: string;
+  };
+
+  const dataEl = document.getElementById("tools-data");
+  const toolsData: ToolRecord[] = dataEl ? JSON.parse(dataEl.textContent ?? "[]") : [];
+
+  // Precompute a lowercase search blob per tool once.
+  const searchIndex = toolsData.map((t) => ({
+    tool: t,
+    blob: [t.title, t.description, t.category, ...(t.tags ?? [])].join(" ").toLowerCase(),
+  }));
+
+  const toolsById = new Map(toolsData.map((t) => [t.id, t]));
+
+  // ---------------- Category chip filtering ----------------
   const chips = document.querySelectorAll<HTMLButtonElement>(".category-chip");
   const sections = document.querySelectorAll<HTMLElement>(".category-section");
   const emptyState = document.getElementById("empty-state");
@@ -136,15 +197,11 @@ const categoryCount = categories.length;
   let activeCategory = "all";
 
   function applyFilters() {
-    const query = (searchInput?.value ?? "").trim().toLowerCase();
     let visibleCount = 0;
-
     sections.forEach((section) => {
       let sectionHasVisible = false;
       section.querySelectorAll<HTMLElement>(".tool-card").forEach((card) => {
-        const matchesCategory = activeCategory === "all" || card.dataset.category === activeCategory;
-        const matchesQuery = !query || (card.dataset.search ?? "").includes(query);
-        const show = matchesCategory && matchesQuery;
+        const show = activeCategory === "all" || card.dataset.category === activeCategory;
         card.style.display = show ? "" : "none";
         if (show) {
           sectionHasVisible = true;
@@ -153,12 +210,9 @@ const categoryCount = categories.length;
       });
       section.style.display = sectionHasVisible ? "" : "none";
     });
-
     if (resultCount) resultCount.textContent = String(visibleCount);
     if (emptyState) emptyState.classList.toggle("hidden", visibleCount !== 0);
   }
-
-  searchInput?.addEventListener("input", applyFilters);
 
   chips.forEach((chip) => {
     chip.addEventListener("click", () => {
@@ -173,4 +227,200 @@ const categoryCount = categories.length;
     const isDark = document.documentElement.classList.toggle("dark");
     localStorage.setItem("theme", isDark ? "dark" : "light");
   });
+
+  // ---------------- Search suggestions ----------------
+  const searchInput = document.getElementById("tool-search") as HTMLInputElement | null;
+  const suggestionsList = document.getElementById("search-suggestions") as HTMLUListElement | null;
+  const SUGGESTION_MAX = 8;
+  let activeSuggestionIndex = -1;
+
+  function closeSuggestions() {
+    if (!suggestionsList) return;
+    suggestionsList.innerHTML = "";
+    suggestionsList.classList.add("hidden");
+    activeSuggestionIndex = -1;
+  }
+
+  function highlightSuggestion(index: number) {
+    if (!suggestionsList) return;
+    const items = suggestionsList.querySelectorAll<HTMLAnchorElement>("a[data-suggestion]");
+    items.forEach((el, i) => el.classList.toggle("bg-paper", i === index));
+    activeSuggestionIndex = index;
+  }
+
+  function renderSuggestions(query: string) {
+    if (!suggestionsList) return;
+    suggestionsList.innerHTML = "";
+
+    if (!query) {
+      closeSuggestions();
+      return;
+    }
+
+    const matches = searchIndex
+      .filter(({ blob }) => blob.includes(query))
+      .slice(0, SUGGESTION_MAX)
+      .map(({ tool }) => tool);
+
+    if (matches.length === 0) {
+      const li = document.createElement("li");
+      li.className = "px-4 py-3 font-mono text-xs text-ink-soft";
+      li.textContent = `No tools match "${query}"`;
+      suggestionsList.appendChild(li);
+      suggestionsList.classList.remove("hidden");
+      return;
+    }
+
+    matches.forEach((t) => {
+      const li = document.createElement("li");
+
+      const a = document.createElement("a");
+      a.href = t.href;
+      a.dataset.suggestion = "true";
+      a.dataset.toolId = t.id;
+      a.className = "flex items-center justify-between gap-3 px-4 py-3 text-sm text-ink transition hover:bg-paper";
+
+      const left = document.createElement("span");
+      left.className = "min-w-0";
+
+      const title = document.createElement("span");
+      title.className = "block truncate font-medium";
+      title.textContent = t.title;
+
+      const desc = document.createElement("span");
+      desc.className = "block truncate text-xs text-ink-soft";
+      desc.textContent = t.description;
+
+      left.appendChild(title);
+      left.appendChild(desc);
+
+      const cat = document.createElement("span");
+      cat.className = "shrink-0 font-mono text-[10px] uppercase text-ink-soft";
+      cat.textContent = t.category;
+
+      a.appendChild(left);
+      a.appendChild(cat);
+
+      li.appendChild(a);
+      suggestionsList.appendChild(li);
+    });
+
+    suggestionsList.classList.remove("hidden");
+    activeSuggestionIndex = -1;
+  }
+
+  searchInput?.addEventListener("input", () => {
+    const query = (searchInput.value ?? "").trim().toLowerCase();
+    renderSuggestions(query);
+  });
+
+  searchInput?.addEventListener("focus", () => {
+    const query = (searchInput.value ?? "").trim().toLowerCase();
+    if (query) renderSuggestions(query);
+  });
+
+  searchInput?.addEventListener("keydown", (e) => {
+    if (!suggestionsList || suggestionsList.classList.contains("hidden")) return;
+    const items = suggestionsList.querySelectorAll<HTMLAnchorElement>("a[data-suggestion]");
+    if (items.length === 0) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      highlightSuggestion((activeSuggestionIndex + 1) % items.length);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      highlightSuggestion((activeSuggestionIndex - 1 + items.length) % items.length);
+    } else if (e.key === "Enter") {
+      if (activeSuggestionIndex >= 0) {
+        e.preventDefault();
+        items[activeSuggestionIndex].click();
+      }
+    } else if (e.key === "Escape") {
+      closeSuggestions();
+      searchInput.blur();
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    const target = e.target as Node;
+    if (searchInput?.contains(target) || suggestionsList?.contains(target)) return;
+    closeSuggestions();
+  });
+
+  // ---------------- Recently viewed ----------------
+  const RECENT_KEY = "toolhub:recentlyViewed";
+  const recentSection = document.getElementById("recent-section");
+  const recentGrid = document.getElementById("recent-grid");
+  const clearRecentBtn = document.getElementById("clear-recent");
+
+  function renderRecent() {
+    if (!recentGrid || !recentSection) return;
+
+    const ids = JSON.parse(localStorage.getItem(RECENT_KEY) ?? "[]") || [];
+    const tools = ids.map((id) => toolsById.get(id)).filter((t): t is ToolRecord => Boolean(t));
+
+    recentGrid.innerHTML = "";
+
+    tools.forEach((t) => {
+      const a = document.createElement("a");
+      a.href = t.href;
+      a.className = "tool-card group block overflow-hidden rounded-md border border-line bg-surface transition hover:border-accent";
+
+      if (t.image) {
+        const imgWrap = document.createElement("div");
+        imgWrap.className = "aspect-video w-full overflow-hidden border-b border-line bg-paper";
+        const img = document.createElement("img");
+        img.src = t.image;
+        img.alt = t.title;
+        img.loading = "lazy";
+        img.className = "h-full w-full object-cover transition group-hover:scale-105";
+        imgWrap.appendChild(img);
+        a.appendChild(imgWrap);
+      }
+
+      const body = document.createElement("div");
+      body.className = "p-4";
+
+      const row = document.createElement("div");
+      row.className = "flex items-center justify-between gap-2";
+
+      const h3 = document.createElement("h3");
+      h3.className = "truncate font-display text-sm font-semibold text-ink";
+      h3.textContent = t.title;
+
+      const cat = document.createElement("span");
+      cat.className = "shrink-0 font-mono text-[10px] uppercase text-ink-soft";
+      cat.textContent = t.category;
+
+      row.appendChild(h3);
+      row.appendChild(cat);
+
+      const desc = document.createElement("p");
+      desc.className = "mt-1 line-clamp-2 text-xs text-ink-soft";
+      desc.textContent = t.description;
+
+      body.appendChild(row);
+      body.appendChild(desc);
+      a.appendChild(body);
+
+      recentGrid.appendChild(a);
+    });
+
+    recentSection.classList.toggle("hidden", tools.length === 0);
+  }
+
+  clearRecentBtn?.addEventListener("click", () => {
+    localStorage.removeItem(RECENT_KEY);
+    renderRecent();
+  });
+
+  renderRecent();
+
+  // Re-render on back/forward nav (bfcache), tab refocus, and Astro view-transitions.
+  window.addEventListener("pageshow", () => renderRecent());
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) renderRecent();
+  });
+  document.addEventListener("astro:page-load", renderRecent);
+  document.addEventListener("astro:after-swap", renderRecent);
 </script>
