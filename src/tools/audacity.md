@@ -7,7 +7,7 @@ tags:
   - podcasting
   - recording
   - open-source
-category: Audio Editing
+category: Audio & Music
 image: https://upload.wikimedia.org/wikipedia/commons/8/8f/Audacity_version_3.3.png
 url: https://www.audacityteam.org
 ---

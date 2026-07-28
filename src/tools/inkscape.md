@@ -7,7 +7,7 @@ tags:
   - design
   - logo-design
   - open-source
-category: Vector Graphics
+category: Graphics & Design
 image: https://upload.wikimedia.org/wikipedia/commons/9/92/Inkscape_1.4_screenshot.webp
 url: https://inkscape.org
 ---

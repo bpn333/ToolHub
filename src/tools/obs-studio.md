@@ -7,7 +7,7 @@ tags:
   - recording
   - video
   - broadcast
-category: Streaming & Video
+category: Video & Streaming
 image: https://upload.wikimedia.org/wikipedia/commons/8/85/Wcubuntu24041ltsenusobs20241102.png
 url: https://obsproject.com
 ---

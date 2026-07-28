@@ -12,7 +12,7 @@ const categories = [...new Set(allTools.map((t) => t.data.category))].sort((a, b
 const grouped = categories.map((category) => ({
   category,
   tools: allTools.filter((t) => t.data.category === category),
-}));
+})).sort((a,b)=> b.tools.length - a.tools.length);
 
 const toolCount = allTools.length;
 const categoryCount = categories.length;
@@ -120,7 +120,7 @@ const toolsData = allTools.map((t) => ({
 
     <!-- CATEGORY CHIPS -->
     <section class="border-y border-line bg-surface">
-      <div class="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-6 py-4">
+      <div class="mx-auto flex max-w-6xl gap-2 overflow-x-auto scrollbar-thin scrollbar-thumb-accent-2 scrollbar-track-surface px-6 py-4 whitespace-nowrap">
         <button class="category-chip is-active" data-category="all">All</button>
         {categories.map((category) => (
           <button class="category-chip" data-category={category}>{category}</button>
@@ -373,7 +373,7 @@ const toolsData = allTools.map((t) => ({
         img.src = t.image;
         img.alt = t.title;
         img.loading = "lazy";
-        img.className = "h-full w-full object-cover transition group-hover:scale-105";
+        img.className = "h-full w-full object-contain transition group-hover:scale-105";
         imgWrap.appendChild(img);
         a.appendChild(imgWrap);
       }

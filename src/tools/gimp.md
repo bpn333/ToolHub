@@ -7,7 +7,7 @@ tags:
   - photo-editing
   - design
   - open-source
-category: Image Editing
+category: Graphics & Design
 image: https://upload.wikimedia.org/wikipedia/commons/7/76/Gimp-2.10.8-ja.png
 url: https://www.gimp.org
 ---

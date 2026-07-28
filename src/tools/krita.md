@@ -7,7 +7,7 @@ tags:
   - illustration
   - art
   - open-source
-category: Digital Art
+category: Graphics & Design
 image: https://upload.wikimedia.org/wikipedia/commons/1/15/Krita_5.0.0_screenshot.png
 url: https://krita.org
 ---
