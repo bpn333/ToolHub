@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Docker - ToolHub</title><meta name="description" content="Platform for building, shipping, and running applications inside lightweight, portable containers."><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolhub.ext.io/tool/docker/"><meta name="keywords" content="docker, containers, devops, virtualization, deployment, microservices, command-line"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = stored || (prefersDark ? "dark" : "light");
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script><link rel="stylesheet" href="/assets/_astro_content.D0Jxiq--.css"></head><body class="bg-paper text-ink font-body antialiased"><main class="mx-auto max-w-3xl px-6 py-16"><div><a href="/" class="font-mono text-xs text-ink-soft hover:text-accent">&larr; Back to ToolHub</a></div><div class="mt-6"><span class="index-tab w-fit">Developer Tools</span></div><h1 class="mt-4 font-display text-3xl font-bold text-ink">Docker</h1><p class="mt-3 text-base text-ink-soft">Platform for building, shipping, and running applications inside lightweight, portable containers.</p><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" alt="Docker" loading="eager" fetchpriority="high" decoding="async" class="mt-8 max-h-80 w-full rounded-md border border-line bg-surface object-contain"><div class="mt-8 rounded-lg border border-line bg-surface p-4"><div class="flex flex-col gap-4 sm:flex-row items-center justify-between"><div><p class="font-mono text-sm text-accent-2">https://www.docker.com</p></div><a href="https://www.docker.com" target="_blank" rel="noopener noreferrer" class="rounded-md border-2 border-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent">Open Website</a></div></div><div class="prose-toolhub prose prose-sm mt-10"><h1 id="docker">Docker</h1>
+<p><strong>Docker</strong> is a platform that lets developers package applications, along with all their dependencies and configuration, into standardized units called containers. Containers run consistently across any environment — a developer’s laptop, a testing server, or a production cloud cluster — eliminating the classic “it works on my machine” problem.</p>
+<p>Since its release in 2013, Docker has fundamentally changed how software is built, tested, and deployed, becoming a cornerstone technology of modern DevOps and cloud-native development.</p>
+<hr>
+<h2 id="-high-level-capabilities">🌟 High-Level Capabilities</h2>
+<ul>
+<li><strong>Containerization:</strong> Package applications with everything they need to run.</li>
+<li><strong>Portability:</strong> Run identical containers on any machine that supports Docker.</li>
+<li><strong>Isolation:</strong> Keep applications and their dependencies separate from the host system.</li>
+<li><strong>Image Management:</strong> Build, version, and share reusable container images.</li>
+<li><strong>Orchestration Ready:</strong> Integrate with tools like Docker Compose and Kubernetes.</li>
+<li><strong>Resource Efficiency:</strong> Share the host OS kernel instead of running full virtual machines.</li>
+</ul>
+<hr>
+<h2 id="-what-it-helps-you-do">📦 What It Helps You Do</h2>
+<p>Docker solves a problem every developer has faced: code that runs perfectly on one machine but fails on another due to mismatched dependencies, library versions, or system configuration.</p>
+<p>By packaging an application and its entire environment into an image, Docker guarantees that what runs on a developer’s laptop is exactly what runs in staging and production.</p>
+<p>Need to spin up a database for local testing? Pull an image and run it in seconds. Want to onboard a new team member without a lengthy setup guide? Hand them a <code>docker-compose.yml</code> file. Deploying to the cloud? Ship the same container image you tested locally.</p>
+<p>This consistency dramatically reduces environment-related bugs and speeds up both development and deployment.</p>
+<hr>
+<h2 id="-why-docker-is-so-widely-used">🚀 Why Docker Is So Widely Used</h2>
+<p>Before containers, isolating applications typically meant running full virtual machines, each with its own operating system — heavy, slow to start, and resource-intensive.</p>
+<p>Docker containers share the host machine’s kernel, making them dramatically lighter and faster to start, often in a fraction of a second. This efficiency allows dozens of containers to run on a single machine where only a few virtual machines could fit.</p>
+<p>Docker also standardized how images are built and shared through the <code>Dockerfile</code> format and Docker Hub, a public registry hosting millions of pre-built images. This ecosystem effect means most software today — from databases to web servers to machine learning frameworks — is available as a ready-to-use Docker image.</p>
+<hr>
+<h2 id="-core-commands">💻 Core Commands</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> build</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> myapp</span><span style="color:#9ECBFF"> .</span><span style="color:#6A737D">        # Build an image from a Dockerfile</span></span>
+<span class="line"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -p</span><span style="color:#9ECBFF"> 8080:80</span><span style="color:#9ECBFF"> myapp</span><span style="color:#6A737D">    # Run a container from an image</span></span>
+<span class="line"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> ps</span><span style="color:#6A737D">                      # List running containers</span></span>
+<span class="line"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> images</span><span style="color:#6A737D">                  # List local images</span></span>
+<span class="line"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> stop</span><span style="color:#F97583"> &lt;</span><span style="color:#9ECBFF">containe</span><span style="color:#E1E4E8">r</span><span style="color:#F97583">&gt;</span><span style="color:#6A737D">        # Stop a running container</span></span>
+<span class="line"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> exec</span><span style="color:#79B8FF"> -it</span><span style="color:#F97583"> &lt;</span><span style="color:#9ECBFF">containe</span><span style="color:#E1E4E8">r</span><span style="color:#F97583">&gt;</span><span style="color:#9ECBFF"> sh</span><span style="color:#6A737D"> # Open a shell inside a container</span></span>
+<span class="line"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> compose</span><span style="color:#9ECBFF"> up</span><span style="color:#6A737D">              # Start a multi-container application</span></span>
+<span class="line"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> push</span><span style="color:#9ECBFF"> myrepo/myapp</span><span style="color:#6A737D">       # Upload an image to a registry</span></span></code></pre>
+<hr>
+<h2 id="-example-dockerfile">📋 Example Dockerfile</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="dockerfile"><code><span class="line"><span style="color:#F97583">FROM</span><span style="color:#E1E4E8"> node:20-alpine</span></span>
+<span class="line"><span style="color:#F97583">WORKDIR</span><span style="color:#E1E4E8"> /app</span></span>
+<span class="line"><span style="color:#F97583">COPY</span><span style="color:#E1E4E8"> package*.json ./</span></span>
+<span class="line"><span style="color:#F97583">RUN</span><span style="color:#E1E4E8"> npm install</span></span>
+<span class="line"><span style="color:#F97583">COPY</span><span style="color:#E1E4E8"> . .</span></span>
+<span class="line"><span style="color:#F97583">EXPOSE</span><span style="color:#E1E4E8"> 3000</span></span>
+<span class="line"><span style="color:#F97583">CMD</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">"npm"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"start"</span><span style="color:#E1E4E8">]</span></span></code></pre>
+<hr>
+<h2 id="-common-workflows">📦 Common Workflows</h2>
+<ul>
+<li><strong>Local Development:</strong> Spin up databases, caches, and services without installing them directly.</li>
+<li><strong>CI/CD Pipelines:</strong> Build and test applications in clean, reproducible containers.</li>
+<li><strong>Microservices:</strong> Run each service in its own isolated container.</li>
+<li><strong>Deployment:</strong> Ship the exact same image from development through to production.</li>
+<li><strong>Environment Replication:</strong> Reproduce a colleague’s setup instantly instead of manually configuring dependencies.</li>
+</ul>
+<hr>
+<h2 id="️-the-wider-ecosystem">⚙️ The Wider Ecosystem</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Docker Compose</td>
+<td>Define and run multi-container applications with a single file</td>
+</tr>
+<tr>
+<td>Docker Hub</td>
+<td>Public registry for sharing container images</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Orchestrate large numbers of containers across a cluster</td>
+</tr>
+<tr>
+<td>Docker Desktop</td>
+<td>GUI application for managing containers on Windows/macOS</td>
+</tr>
+<tr>
+<td>BuildKit</td>
+<td>Faster, more efficient image building engine</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-tips-for-getting-started">💡 Tips for Getting Started</h2>
+<ul>
+<li>Keep images small by using minimal base images like <code>alpine</code>.</li>
+<li>Use <code>.dockerignore</code> to exclude unnecessary files from the build context.</li>
+<li>Combine related <code>RUN</code> commands to reduce the number of image layers.</li>
+<li>Use Docker Compose for multi-service local development setups.</li>
+<li>Never store secrets directly in a Dockerfile; use environment variables or secret managers instead.</li>
+<li>Regularly prune unused images and containers to free up disk space.</li>
+</ul>
+<hr>
+<h2 id="-who-it-is-great-for">🧠 Who It Is Great For</h2>
+<p>Docker is invaluable for developers, DevOps engineers, QA teams, and system administrators who need consistent, reproducible environments across development, testing, and production.</p>
+<p>Whether you’re building a single web app, coordinating a microservices architecture, or setting up automated CI/CD pipelines, Docker provides the portability and isolation needed to ship software reliably.</p>
+<p>Its lightweight containerization model, vast image ecosystem, and central role in modern DevOps practices have made Docker one of the most important tools in contemporary software engineering.</p>
+</div><div class="mt-10 flex flex-wrap gap-2"><span class="font-mono text-xs text-ink-soft">#docker</span><span class="font-mono text-xs text-ink-soft">#containers</span><span class="font-mono text-xs text-ink-soft">#devops</span><span class="font-mono text-xs text-ink-soft">#virtualization</span><span class="font-mono text-xs text-ink-soft">#deployment</span><span class="font-mono text-xs text-ink-soft">#microservices</span><span class="font-mono text-xs text-ink-soft">#command-line</span></div></main></body></html><script>(function(){const toolId = "docker";
+
+  function addRecent(id) {
+    const current = JSON.parse(localStorage.getItem("toolhub:recentlyViewed") ?? "[]")?.filter((h) => h !== id);
+    current.unshift(id);
+    localStorage.setItem("toolhub:recentlyViewed", JSON.stringify(current.slice(0, 6)));
+  }
+  addRecent(toolId);
+})();</script>

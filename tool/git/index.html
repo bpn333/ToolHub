@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Git - ToolHub</title><meta name="description" content="Free and open-source distributed version control system for tracking changes in source code during software development."><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolhub.ext.io/tool/git/"><meta name="keywords" content="git, version-control, vcs, source-control, open-source, collaboration, command-line"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = stored || (prefersDark ? "dark" : "light");
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script><link rel="stylesheet" href="/assets/_astro_content.D0Jxiq--.css"></head><body class="bg-paper text-ink font-body antialiased"><main class="mx-auto max-w-3xl px-6 py-16"><div><a href="/" class="font-mono text-xs text-ink-soft hover:text-accent">&larr; Back to ToolHub</a></div><div class="mt-6"><span class="index-tab w-fit">Developer Tools</span></div><h1 class="mt-4 font-display text-3xl font-bold text-ink">Git</h1><p class="mt-3 text-base text-ink-soft">Free and open-source distributed version control system for tracking changes in source code during software development.</p><img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git" loading="eager" fetchpriority="high" decoding="async" class="mt-8 max-h-80 w-full rounded-md border border-line bg-surface object-contain"><div class="mt-8 rounded-lg border border-line bg-surface p-4"><div class="flex flex-col gap-4 sm:flex-row items-center justify-between"><div><p class="font-mono text-sm text-accent-2">https://git-scm.com</p></div><a href="https://git-scm.com" target="_blank" rel="noopener noreferrer" class="rounded-md border-2 border-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent">Open Website</a></div></div><div class="prose-toolhub prose prose-sm mt-10"><h1 id="git">Git</h1>
+<p><strong>Git</strong> is a free and open-source distributed version control system created by Linus Torvalds in 2005 to manage the Linux kernel’s source code. Today it is the backbone of modern software development, used by individual developers and massive engineering organizations alike to track changes, coordinate collaboration, and maintain the history of virtually every codebase in existence.</p>
+<p>Unlike older, centralized version control systems, Git gives every developer a full copy of the project’s history on their own machine, enabling fast, offline, and highly flexible workflows.</p>
+<hr>
+<h2 id="-high-level-capabilities">🌟 High-Level Capabilities</h2>
+<ul>
+<li><strong>Version Tracking:</strong> Record every change made to a project’s files over time.</li>
+<li><strong>Branching &amp; Merging:</strong> Work on isolated features without disturbing the main codebase.</li>
+<li><strong>Distributed Workflow:</strong> Every clone is a full backup with complete project history.</li>
+<li><strong>Collaboration:</strong> Coordinate work across teams of any size, remote or local.</li>
+<li><strong>Staging Area:</strong> Precisely control which changes are included in each commit.</li>
+<li><strong>History &amp; Auditing:</strong> Inspect who changed what, when, and why.</li>
+</ul>
+<hr>
+<h2 id="-what-it-helps-you-do">🌱 What It Helps You Do</h2>
+<p>Git lets developers experiment freely without fear of breaking a working project.</p>
+<p>Need to try a risky refactor? Create a branch.</p>
+<p>Made a mistake three commits ago? Roll back to any previous state.</p>
+<p>Want to see exactly who introduced a bug? Git blame shows the full history line by line.</p>
+<p>Working with a team scattered across time zones? Push and pull changes through a shared remote repository like GitHub, GitLab, or Bitbucket.</p>
+<p>Because every operation happens locally by default, Git is fast even on huge codebases, and developers can commit, branch, and inspect history without needing a network connection.</p>
+<hr>
+<h2 id="-why-git-is-so-widely-used">🚀 Why Git Is So Widely Used</h2>
+<p>Git’s distributed design is what sets it apart from older systems like SVN or CVS.</p>
+<p>Instead of relying on a single central server, every developer’s local repository contains the complete project history. This makes Git resilient, fast, and well-suited to non-linear development, where many people work on different features simultaneously.</p>
+<p>Its branching model is famously lightweight — creating a branch takes a fraction of a second and costs almost nothing in storage — which encourages a workflow built around short-lived feature branches, pull requests, and code review.</p>
+<p>Git is also the foundation that platforms like GitHub, GitLab, and Bitbucket are built on, making it the de facto standard for open-source collaboration and enterprise software development.</p>
+<hr>
+<h2 id="-core-commands">💻 Core Commands</h2>
+<p>A handful of commands cover most day-to-day Git usage:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> init</span><span style="color:#6A737D">                  # Start a new repository</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> clone</span><span style="color:#F97583"> &lt;</span><span style="color:#9ECBFF">ur</span><span style="color:#E1E4E8">l</span><span style="color:#F97583">&gt;</span><span style="color:#6A737D">           # Copy an existing repository</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> status</span><span style="color:#6A737D">                # See what has changed</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#F97583"> &lt;</span><span style="color:#9ECBFF">fil</span><span style="color:#E1E4E8">e</span><span style="color:#F97583">&gt;</span><span style="color:#6A737D">            # Stage changes for commit</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "message"</span><span style="color:#6A737D">   # Save staged changes</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> branch</span><span style="color:#F97583"> &lt;</span><span style="color:#9ECBFF">nam</span><span style="color:#E1E4E8">e</span><span style="color:#F97583">&gt;</span><span style="color:#6A737D">         # Create a new branch</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> checkout</span><span style="color:#F97583"> &lt;</span><span style="color:#9ECBFF">branc</span><span style="color:#E1E4E8">h</span><span style="color:#F97583">&gt;</span><span style="color:#6A737D">     # Switch branches</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> merge</span><span style="color:#F97583"> &lt;</span><span style="color:#9ECBFF">branc</span><span style="color:#E1E4E8">h</span><span style="color:#F97583">&gt;</span><span style="color:#6A737D">        # Combine branches</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> pull</span><span style="color:#6A737D">                  # Fetch and merge remote changes</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> push</span><span style="color:#6A737D">                  # Upload local commits to a remote</span></span></code></pre>
+<hr>
+<h2 id="-common-workflows">📦 Common Workflows</h2>
+<ul>
+<li><strong>Feature Branching:</strong> Isolate new work on its own branch until it’s ready to merge.</li>
+<li><strong>Code Review:</strong> Open pull/merge requests so teammates can review changes before they land.</li>
+<li><strong>Release Management:</strong> Tag specific commits as versioned releases.</li>
+<li><strong>Bug Tracking:</strong> Use <code>git bisect</code> to pinpoint the exact commit that introduced a regression.</li>
+<li><strong>Open Source Contribution:</strong> Fork a repository, make changes, and submit a pull request.</li>
+<li><strong>CI/CD Integration:</strong> Trigger automated builds, tests, and deployments on every push.</li>
+</ul>
+<hr>
+<h2 id="️-beyond-the-basics">⚙️ Beyond the Basics</h2>
+<p>Git also supports more advanced capabilities that power sophisticated workflows:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git rebase</code></td>
+<td>Rewrite commit history for a cleaner, linear log</td>
+</tr>
+<tr>
+<td><code>git stash</code></td>
+<td>Temporarily shelve uncommitted changes</td>
+</tr>
+<tr>
+<td><code>git cherry-pick</code></td>
+<td>Apply a specific commit from another branch</td>
+</tr>
+<tr>
+<td><code>git submodule</code></td>
+<td>Nest one repository inside another</td>
+</tr>
+<tr>
+<td><code>git hooks</code></td>
+<td>Run scripts automatically at key points (e.g. before a commit)</td>
+</tr>
+<tr>
+<td><code>.gitignore</code></td>
+<td>Exclude files and folders from version control</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-tips-for-getting-started">💡 Tips for Getting Started</h2>
+<ul>
+<li>Commit early and often, with clear, descriptive messages.</li>
+<li>Use <code>.gitignore</code> to keep build artifacts and secrets out of the repository.</li>
+<li>Prefer small, focused branches over large, long-lived ones.</li>
+<li>Learn <code>git log --oneline --graph</code> to visualize branch history at a glance.</li>
+<li>Practice resolving merge conflicts on a test repository before encountering them in real projects.</li>
+<li>Pair Git with a hosting platform like GitHub or GitLab to unlock collaboration features.</li>
+</ul>
+<hr>
+<h2 id="-who-it-is-great-for">🧠 Who It Is Great For</h2>
+<p>Git is essential for software developers, DevOps engineers, technical writers, data scientists, and anyone who manages files that change over time and benefit from a full history of edits.</p>
+<p>Whether you’re working solo on a side project or coordinating hundreds of contributors on a massive open-source codebase, Git provides the reliability, speed, and flexibility needed to manage change with confidence.</p>
+<p>Its distributed architecture, powerful branching model, and near-universal adoption have made Git the standard version control system for modern software development.</p>
+</div><div class="mt-10 flex flex-wrap gap-2"><span class="font-mono text-xs text-ink-soft">#git</span><span class="font-mono text-xs text-ink-soft">#version-control</span><span class="font-mono text-xs text-ink-soft">#vcs</span><span class="font-mono text-xs text-ink-soft">#source-control</span><span class="font-mono text-xs text-ink-soft">#open-source</span><span class="font-mono text-xs text-ink-soft">#collaboration</span><span class="font-mono text-xs text-ink-soft">#command-line</span></div></main></body></html><script>(function(){const toolId = "git";
+
+  function addRecent(id) {
+    const current = JSON.parse(localStorage.getItem("toolhub:recentlyViewed") ?? "[]")?.filter((h) => h !== id);
+    current.unshift(id);
+    localStorage.setItem("toolhub:recentlyViewed", JSON.stringify(current.slice(0, 6)));
+  }
+  addRecent(toolId);
+})();</script>

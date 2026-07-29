@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Visual Studio Code - ToolHub</title><meta name="description" content="Free, lightweight, and highly extensible source code editor from Microsoft for building and debugging applications in virtually any language."><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolhub.ext.io/tool/visual-studio-code/"><meta name="keywords" content="vscode, code-editor, ide, microsoft, extensions, debugging, open-source"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = stored || (prefersDark ? "dark" : "light");
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script><link rel="stylesheet" href="/assets/_astro_content.D0Jxiq--.css"></head><body class="bg-paper text-ink font-body antialiased"><main class="mx-auto max-w-3xl px-6 py-16"><div><a href="/" class="font-mono text-xs text-ink-soft hover:text-accent">&larr; Back to ToolHub</a></div><div class="mt-6"><span class="index-tab w-fit">Developer Tools</span></div><h1 class="mt-4 font-display text-3xl font-bold text-ink">Visual Studio Code</h1><p class="mt-3 text-base text-ink-soft">Free, lightweight, and highly extensible source code editor from Microsoft for building and debugging applications in virtually any language.</p><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code" loading="eager" fetchpriority="high" decoding="async" class="mt-8 max-h-80 w-full rounded-md border border-line bg-surface object-contain"><div class="mt-8 rounded-lg border border-line bg-surface p-4"><div class="flex flex-col gap-4 sm:flex-row items-center justify-between"><div><p class="font-mono text-sm text-accent-2">https://code.visualstudio.com</p></div><a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer" class="rounded-md border-2 border-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent">Open Website</a></div></div><div class="prose-toolhub prose prose-sm mt-10"><h1 id="visual-studio-code">Visual Studio Code</h1>
+<p><strong>Visual Studio Code</strong> (commonly known as <strong>VS Code</strong>) is a free, open-source code editor developed by Microsoft. Since its release in 2015, it has become the most widely used development tool in the world, prized for its speed, flexibility, and enormous ecosystem of extensions that turn it into a full-featured IDE for nearly any programming language or framework.</p>
+<p>Unlike heavier, language-specific IDEs, VS Code starts as a fast, minimal text editor and grows exactly as powerful as the developer needs through optional extensions.</p>
+<hr>
+<h2 id="-high-level-capabilities">🌟 High-Level Capabilities</h2>
+<ul>
+<li><strong>Code Editing:</strong> Syntax highlighting, IntelliSense autocompletion, and code navigation for hundreds of languages.</li>
+<li><strong>Debugging:</strong> Built-in debugger with breakpoints, watch variables, and call stacks.</li>
+<li><strong>Extensions:</strong> A vast marketplace of add-ons for languages, frameworks, and tools.</li>
+<li><strong>Integrated Terminal:</strong> Run shell commands without leaving the editor.</li>
+<li><strong>Version Control:</strong> Native Git integration with visual diffs and staging.</li>
+<li><strong>Remote Development:</strong> Edit code running on remote machines, containers, or WSL as if it were local.</li>
+</ul>
+<hr>
+<h2 id="-what-it-helps-you-do">🧩 What It Helps You Do</h2>
+<p>VS Code adapts to almost any development workflow.</p>
+<p>Writing Python? Install the Python extension for linting, debugging, and Jupyter notebook support built right in. Building a React app? Get instant IntelliSense, JSX support, and integrated npm scripts. Working across a large team? Live Share lets colleagues collaborate on the same file in real time.</p>
+<p>Its integrated terminal means developers rarely need to switch windows to run builds, tests, or Git commands, and its built-in debugger supports dozens of languages through the Debug Adapter Protocol, letting developers set breakpoints and step through code without configuring a separate tool.</p>
+<hr>
+<h2 id="-why-vs-code-is-so-widely-used">🚀 Why VS Code Is So Widely Used</h2>
+<p>VS Code strikes a balance that few editors achieve: it launches quickly like a lightweight text editor, yet can be configured into a fully-featured IDE rivaling dedicated tools for any given language.</p>
+<p>Its extension marketplace is the key to this flexibility. With tens of thousands of extensions covering everything from language support and linters to themes and productivity tools, developers can customize VS Code precisely to their workflow rather than adopting a one-size-fits-all environment.</p>
+<p>Being free, open-source, and cross-platform (Windows, macOS, and Linux) has also driven massive adoption across individual developers, startups, and large enterprises alike.</p>
+<hr>
+<h2 id="-key-features-in-practice">💻 Key Features in Practice</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsonc"><code><span class="line"><span style="color:#6A737D">// settings.json — customize VS Code's behavior</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "editor.formatOnSave"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "editor.tabSize"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "files.autoSave"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"onFocusChange"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "terminal.integrated.fontSize"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">14</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Common keyboard-driven workflows include:</p>
+<ul>
+<li><code>Ctrl/Cmd + P</code> — Quickly open any file by name</li>
+<li><code>Ctrl/Cmd + Shift + P</code> — Access the command palette for any action</li>
+<li><code>Ctrl/Cmd + \</code> — Toggle the integrated terminal</li>
+<li><code>F5</code> — Start debugging the current project</li>
+</ul>
+<hr>
+<h2 id="-common-workflows">📦 Common Workflows</h2>
+<ul>
+<li><strong>Full-Stack Development:</strong> Edit frontend and backend code side by side with unified tooling.</li>
+<li><strong>Remote Development:</strong> Connect to a remote server, container, or WSL instance and code as if local.</li>
+<li><strong>Notebook-Based Data Science:</strong> Run and edit Jupyter notebooks directly inside the editor.</li>
+<li><strong>Pair Programming:</strong> Use Live Share to collaborate on the same codebase in real time.</li>
+<li><strong>DevOps Scripting:</strong> Write and test shell scripts, Dockerfiles, and CI/CD configuration files.</li>
+</ul>
+<hr>
+<h2 id="️-popular-extensions">⚙️ Popular Extensions</h2>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>Linting, debugging, and IntelliSense for Python</td>
+</tr>
+<tr>
+<td>ESLint</td>
+<td>Real-time JavaScript/TypeScript linting</td>
+</tr>
+<tr>
+<td>Prettier</td>
+<td>Automatic code formatting</td>
+</tr>
+<tr>
+<td>GitLens</td>
+<td>Deep Git history and blame annotations</td>
+</tr>
+<tr>
+<td>Docker</td>
+<td>Manage containers and Dockerfiles from the editor</td>
+</tr>
+<tr>
+<td>Live Share</td>
+<td>Real-time collaborative editing</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-tips-for-getting-started">💡 Tips for Getting Started</h2>
+<ul>
+<li>Install only the extensions you actually need to keep startup times fast.</li>
+<li>Learn the command palette (<code>Ctrl/Cmd + Shift + P</code>) — nearly every action is accessible from it.</li>
+<li>Use workspace-specific settings for project-level configuration.</li>
+<li>Sync settings and extensions across machines using Settings Sync.</li>
+<li>Explore the built-in debugger before reaching for <code>print</code> statements.</li>
+<li>Use multi-cursor editing (<code>Alt/Option + Click</code>) to make simultaneous edits across a file.</li>
+</ul>
+<hr>
+<h2 id="-who-it-is-great-for">🧠 Who It Is Great For</h2>
+<p>VS Code suits beginners writing their first script and senior engineers managing complex, multi-language codebases alike.</p>
+<p>Whether you’re building web applications, writing data science notebooks, managing cloud infrastructure as code, or developing mobile apps, VS Code’s combination of speed, extensibility, and strong language support makes it a natural default choice.</p>
+<p>Its free and open-source nature, active development from Microsoft and the community, and unmatched extension ecosystem have made Visual Studio Code the most popular code editor in the world.</p>
+</div><div class="mt-10 flex flex-wrap gap-2"><span class="font-mono text-xs text-ink-soft">#vscode</span><span class="font-mono text-xs text-ink-soft">#code-editor</span><span class="font-mono text-xs text-ink-soft">#ide</span><span class="font-mono text-xs text-ink-soft">#microsoft</span><span class="font-mono text-xs text-ink-soft">#extensions</span><span class="font-mono text-xs text-ink-soft">#debugging</span><span class="font-mono text-xs text-ink-soft">#open-source</span></div></main></body></html><script>(function(){const toolId = "visual-studio-code";
+
+  function addRecent(id) {
+    const current = JSON.parse(localStorage.getItem("toolhub:recentlyViewed") ?? "[]")?.filter((h) => h !== id);
+    current.unshift(id);
+    localStorage.setItem("toolhub:recentlyViewed", JSON.stringify(current.slice(0, 6)));
+  }
+  addRecent(toolId);
+})();</script>

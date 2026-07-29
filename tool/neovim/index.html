@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Neovim - ToolHub</title><meta name="description" content="Free and open-source, highly extensible text editor built as a modernized fork of Vim for fast, keyboard-driven code editing."><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolhub.ext.io/tool/neovim/"><meta name="keywords" content="neovim, vim, text-editor, terminal, open-source, lua, command-line"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = stored || (prefersDark ? "dark" : "light");
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script><link rel="stylesheet" href="/assets/_astro_content.D0Jxiq--.css"></head><body class="bg-paper text-ink font-body antialiased"><main class="mx-auto max-w-3xl px-6 py-16"><div><a href="/" class="font-mono text-xs text-ink-soft hover:text-accent">&larr; Back to ToolHub</a></div><div class="mt-6"><span class="index-tab w-fit">Developer Tools</span></div><h1 class="mt-4 font-display text-3xl font-bold text-ink">Neovim</h1><p class="mt-3 text-base text-ink-soft">Free and open-source, highly extensible text editor built as a modernized fork of Vim for fast, keyboard-driven code editing.</p><img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Neovim-logo.svg" alt="Neovim" loading="eager" fetchpriority="high" decoding="async" class="mt-8 max-h-80 w-full rounded-md border border-line bg-surface object-contain"><div class="mt-8 rounded-lg border border-line bg-surface p-4"><div class="flex flex-col gap-4 sm:flex-row items-center justify-between"><div><p class="font-mono text-sm text-accent-2">https://neovim.io</p></div><a href="https://neovim.io" target="_blank" rel="noopener noreferrer" class="rounded-md border-2 border-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent">Open Website</a></div></div><div class="prose-toolhub prose prose-sm mt-10"><h1 id="neovim">Neovim</h1>
+<p><strong>Neovim</strong> is a free and open-source text editor born as a modernized fork of Vim in 2014. It preserves Vim’s legendary keyboard-driven, modal editing philosophy while adding a modern architecture — including a built-in Lua scripting engine, asynchronous plugin support, and a proper API — that makes it far easier to extend and integrate with other tools.</p>
+<p>For developers who value speed, minimal mouse usage, and deep customization, Neovim has become one of the most popular editors, especially among terminal-centric and remote-development workflows.</p>
+<hr>
+<h2 id="-high-level-capabilities">🌟 High-Level Capabilities</h2>
+<ul>
+<li><strong>Modal Editing:</strong> Separate modes for navigation, insertion, and command execution enable extremely fast text manipulation.</li>
+<li><strong>Extensibility:</strong> Configure and extend the editor using Lua, a fast and approachable scripting language.</li>
+<li><strong>Plugin Ecosystem:</strong> Thousands of community plugins for language support, file navigation, and UI enhancements.</li>
+<li><strong>LSP Support:</strong> Built-in Language Server Protocol client for autocompletion, diagnostics, and go-to-definition.</li>
+<li><strong>Terminal-Native:</strong> Runs entirely inside a terminal, ideal for SSH sessions and remote servers.</li>
+<li><strong>Asynchronous Jobs:</strong> Run linters, formatters, and builds without freezing the editor.</li>
+</ul>
+<hr>
+<h2 id="️-what-it-helps-you-do">⌨️ What It Helps You Do</h2>
+<p>Neovim is built around the idea that a developer’s hands should rarely need to leave the keyboard.</p>
+<p>Its modal system means every key does something different depending on context — in normal mode, <code>dw</code> deletes a word, <code>ciw</code> changes a word, and <code>3j</code> moves three lines down — turning routine editing into fast, composable commands instead of manual character-by-character selection.</p>
+<p>Its built-in LSP client means Neovim can offer the same autocompletion, error checking, and refactoring tools found in full IDEs, once configured with a language server for the relevant language. Combined with plugins for fuzzy file finding, git integration, and file trees, many developers configure Neovim into a complete, keyboard-first development environment.</p>
+<hr>
+<h2 id="-why-neovim-is-so-widely-used">🚀 Why Neovim Is So Widely Used</h2>
+<p>Vim’s modal editing model has endured for decades because, once learned, it is extraordinarily fast — but classic Vim’s plugin architecture and scripting language (Vimscript) were showing their age.</p>
+<p>Neovim addressed this by introducing a Lua-based configuration and plugin API, asynchronous job control, and a proper embeddable architecture that other applications (like VS Code’s Vim extensions) can build on. This modernization sparked a wave of innovation in the plugin ecosystem, with tools like Telescope (fuzzy finding), Treesitter (advanced syntax parsing), and native LSP support turning Neovim into a genuinely modern editing experience while keeping Vim’s efficient keybindings intact.</p>
+<p>Because it runs entirely in the terminal, Neovim is also a natural fit for developers who work over SSH, inside containers, or on remote servers where a full graphical IDE isn’t practical.</p>
+<hr>
+<h2 id="-example-configuration">💻 Example Configuration</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="lua"><code><span class="line"><span style="color:#6A737D">-- init.lua — basic Neovim configuration</span></span>
+<span class="line"><span style="color:#E1E4E8">vim.</span><span style="color:#B392F0">opt</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">number</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#E1E4E8">vim.</span><span style="color:#B392F0">opt</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">relativenumber</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#E1E4E8">vim.</span><span style="color:#B392F0">opt</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">tabstop</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 2</span></span>
+<span class="line"><span style="color:#E1E4E8">vim.</span><span style="color:#B392F0">opt</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">shiftwidth</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 2</span></span>
+<span class="line"><span style="color:#E1E4E8">vim.</span><span style="color:#B392F0">opt</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">expandtab</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> true</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">vim.</span><span style="color:#B392F0">keymap</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">set</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"n"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"&lt;leader&gt;w"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">":w&lt;CR&gt;"</span><span style="color:#E1E4E8">, { desc </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "Save file" </span><span style="color:#E1E4E8">})</span></span>
+<span class="line"><span style="color:#E1E4E8">vim.</span><span style="color:#B392F0">keymap</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">set</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"n"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"&lt;leader&gt;ff"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">":Telescope find_files&lt;CR&gt;"</span><span style="color:#E1E4E8">, { desc </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "Find files" </span><span style="color:#E1E4E8">})</span></span></code></pre>
+<hr>
+<h2 id="-common-workflows">📦 Common Workflows</h2>
+<ul>
+<li><strong>Remote Editing:</strong> Edit code directly on a remote server over SSH without a graphical interface.</li>
+<li><strong>Keyboard-Driven Development:</strong> Navigate, edit, and refactor code entirely without a mouse.</li>
+<li><strong>Custom IDE Building:</strong> Assemble LSP, autocompletion, and debugging plugins into a personalized setup.</li>
+<li><strong>Terminal-Centric Workflows:</strong> Combine Neovim with tmux and shell tools for an all-terminal development environment.</li>
+<li><strong>Pair Programming Over SSH:</strong> Share a terminal session for lightweight, low-bandwidth collaboration.</li>
+</ul>
+<hr>
+<h2 id="️-popular-plugins">⚙️ Popular Plugins</h2>
+<table>
+<thead>
+<tr>
+<th>Plugin</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Telescope.nvim</td>
+<td>Fuzzy finder for files, buffers, and text</td>
+</tr>
+<tr>
+<td>nvim-treesitter</td>
+<td>Advanced, accurate syntax highlighting and parsing</td>
+</tr>
+<tr>
+<td>nvim-lspconfig</td>
+<td>Simplified configuration for language servers</td>
+</tr>
+<tr>
+<td>nvim-cmp</td>
+<td>Autocompletion engine</td>
+</tr>
+<tr>
+<td>lazy.nvim</td>
+<td>Fast, modern plugin manager</td>
+</tr>
+<tr>
+<td>gitsigns.nvim</td>
+<td>Inline Git change indicators</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-tips-for-getting-started">💡 Tips for Getting Started</h2>
+<ul>
+<li>Learn the core modal commands (<code>h j k l</code>, <code>dw</code>, <code>ciw</code>, <code>:wq</code>) before installing plugins.</li>
+<li>Start from a curated configuration (like LazyVim or Kickstart.nvim) rather than building from scratch.</li>
+<li>Practice motions deliberately — Neovim’s speed comes from muscle memory, not just knowledge.</li>
+<li>Configure a language server for your primary language early to get real IDE-like features.</li>
+<li>Use <code>:Tutor</code> for an interactive, built-in introduction to Vim motions.</li>
+<li>Keep your configuration in version control so it’s portable across machines.</li>
+</ul>
+<hr>
+<h2 id="-who-it-is-great-for">🧠 Who It Is Great For</h2>
+<p>Neovim is ideal for developers who want maximum keyboard efficiency, minimal resource usage, and full control over their editing environment — especially those working frequently in the terminal or over SSH.</p>
+<p>Whether you’re a systems programmer working on remote servers, a developer who prefers a distraction-free, mouse-free workflow, or simply someone who wants to deeply customize every aspect of their editor, Neovim offers the speed and flexibility to build exactly the tool you need.</p>
+<p>Its modern Lua-based architecture, active plugin ecosystem, and roots in Vim’s decades-proven editing model have made Neovim a favorite among developers who value speed and precision.</p>
+</div><div class="mt-10 flex flex-wrap gap-2"><span class="font-mono text-xs text-ink-soft">#neovim</span><span class="font-mono text-xs text-ink-soft">#vim</span><span class="font-mono text-xs text-ink-soft">#text-editor</span><span class="font-mono text-xs text-ink-soft">#terminal</span><span class="font-mono text-xs text-ink-soft">#open-source</span><span class="font-mono text-xs text-ink-soft">#lua</span><span class="font-mono text-xs text-ink-soft">#command-line</span></div></main></body></html><script>(function(){const toolId = "neovim";
+
+  function addRecent(id) {
+    const current = JSON.parse(localStorage.getItem("toolhub:recentlyViewed") ?? "[]")?.filter((h) => h !== id);
+    current.unshift(id);
+    localStorage.setItem("toolhub:recentlyViewed", JSON.stringify(current.slice(0, 6)));
+  }
+  addRecent(toolId);
+})();</script>
