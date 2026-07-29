@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 import { BASE_URL } from "../../util/config";
+import { slugify } from "../../util/slugify";
 
 export async function getStaticPaths() {
   const tools = await getCollection("tools");
@@ -17,14 +18,14 @@ const { Content } = await render(tool);
 ---
 
 <Layout title={`${title} - ToolHub`} description={description} keywords={tags}>
-  <main class="mx-auto max-w-3xl px-6 py-16">
-    <div>
-      <a href={`${BASE_URL}/`} class="font-mono text-xs text-ink-soft hover:text-accent">&larr; Back to ToolHub</a>
-    </div>
-
-    <div class="mt-6">
-      <span class="index-tab w-fit">{category}</span>
-    </div>
+  <section class="mx-auto max-w-3xl px-6 py-10">
+    <nav aria-label="Breadcrumb" class="mx-auto max-w-6xl pb-3 font-mono text-xs text-ink-soft">
+      <a href={`${BASE_URL}/`} class="hover:text-accent">Home</a>
+      <span class="mx-1">/</span>
+      <a href={`${BASE_URL}/category/${slugify(category)}`} class="hover:text-accent">{category}</a>
+      <span class="mx-1">/</span>
+      <span class="text-ink">{title}</span>
+    </nav>
 
     <h1 class="mt-4 font-display text-3xl font-bold text-ink">{title}</h1>
     <p class="mt-3 text-base text-ink-soft">{description}</p>
@@ -67,10 +68,10 @@ const { Content } = await render(tool);
 
     {tags.length > 0 && (
       <div class="mt-10 flex flex-wrap gap-2">
-        {tags.map((tag) => <span class="font-mono text-xs text-ink-soft">#{tag}</span>)}
+        {tags.map((tag) => <a href={`${BASE_URL}/tag/${slugify(tag)}`}><span class="font-mono text-xs text-ink-soft hover:text-accent">#{tag}</span></a>)}
       </div>
     )}
-  </main>
+  </section>
 </Layout>
 
 <script define:vars={{toolId: tool.id}}>

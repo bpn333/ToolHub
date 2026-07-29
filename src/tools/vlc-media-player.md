@@ -3,7 +3,9 @@ title: VLC Media Player
 description: Free and open-source media player for playing, converting, streaming, and managing nearly any multimedia file.
 tags:
   - vlc
-  - media-player
+  - media
+  - video
+  - player
   - streaming
   - playback
   - open-source

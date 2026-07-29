@@ -1,0 +1,95 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ToolCard from "../../components/ToolCard.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { BASE_URL } from "../../util/config";
+import { slugify } from "../../util/slugify";
+
+export async function getStaticPaths() {
+  const allTools = await getCollection("tools");
+  const categories = [...new Set(allTools.map((t) => t.data.category))];
+
+  const tagCounts = allTools
+    .flatMap((t) => t.data.tags ?? [])
+    .reduce<Record<string, number>>((acc, tag) => {
+      acc[tag] = (acc[tag] ?? 0) + 1;
+      return acc;
+    }, {});
+
+  const topTags = Object.entries(tagCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([tag]) => tag);
+
+  // category -> count, computed once, reused for the "other categories" list
+  const categoryCounts = categories.map((category) => ({
+    category,
+    slug: slugify(category),
+    count: allTools.filter((t) => t.data.category === category).length,
+  }));
+
+  return categories.map((category) => ({
+    params: { category: slugify(category) },
+    props: {
+      category,
+      tools: allTools.filter((t) => t.data.category === category),
+      topTags,
+      otherCategories: categoryCounts.filter((c) => c.category !== category),
+    },
+  }));
+}
+
+type Props = {
+  category: string;
+  tools: CollectionEntry<"tools">[];
+  topTags: string[];
+  otherCategories: { category: string; slug: string; count: number }[];
+};
+
+const { category, tools, topTags, otherCategories } = Astro.props as Props;
+---
+<Layout
+  title={`${category} Tools - ToolHub`}
+  description={`Browse ${tools.length} ${category.toLowerCase()} tools, hand-picked and organized.`}
+  keywords={topTags}
+>
+  <nav aria-label="Breadcrumb" class="mx-auto max-w-6xl px-6 pt-8 font-mono text-xs text-ink-soft">
+    <a href="/" class="hover:text-accent">Home</a>
+    <span class="mx-1">/</span>
+    <span class="text-ink">{category}</span>
+  </nav>
+
+  <section class="mx-auto max-w-6xl px-6 py-10">
+    <h1 class="text-center text-2xl sm:text-3xl xl:text-4xl font-display text-accent mb-2">
+      {category}
+    </h1>
+    <p class="text-center font-mono text-xs text-ink-soft mb-10">
+      {tools.length} tool{tools.length === 1 ? "" : "s"}
+    </p>
+
+    {tools.length > 0 ? (
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {tools.map((tool) => <ToolCard tool={tool} />)}
+      </div>
+    ) : (
+      <p class="text-center text-ink-soft">No tools in this category yet.</p>
+    )}
+  </section>
+
+  <section class="border-t border-line bg-surface">
+    <div class="mx-auto max-w-6xl px-6 py-10">
+      <h2 class="font-mono text-sm text-center uppercase text-ink-soft mb-4">Other categories</h2>
+      <div class="flex flex-wrap gap-2 justify-center">
+        {otherCategories.map(({ category: c, slug, count }) => (
+          <a
+            href={`${BASE_URL}/category/${slug}`}
+            class="category-chip"
+            title={`${count} tool${count === 1 ? "" : "s"}`}
+          >
+            {c}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

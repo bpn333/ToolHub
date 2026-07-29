@@ -3,8 +3,9 @@ title: mpv
 description: Free, open-source, and highly configurable media player designed for high-quality video playback, advanced customization, and powerful scripting.
 tags:
   - mpv
-  - media-player
-  - video-player
+  - media
+  - video
+  - player
   - open-source
   - playback
   - scripting

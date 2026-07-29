@@ -1,0 +1,104 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ToolCard from "../../components/ToolCard.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { BASE_URL } from "../../util/config";
+import { slugify } from "../../util/slugify";
+
+export async function getStaticPaths() {
+  const allTools = await getCollection("tools");
+
+  // tag -> count, built once
+  const tagCounts = allTools
+    .flatMap((t) => t.data.tags ?? [])
+    .reduce<Record<string, number>>((acc, tag) => {
+      acc[tag] = (acc[tag] ?? 0) + 1;
+      return acc;
+    }, {});
+
+  const allTagsSorted = Object.entries(tagCounts)
+    .sort((a, b) => b[1] - a[1])
+    .map(([tag, count]) => ({ tag, slug: slugify(tag), count }));
+
+  return allTagsSorted.map(({ tag, slug }) => {
+    const tools = allTools.filter((t) => (t.data.tags ?? []).includes(tag));
+
+    // "related tags" = other tags that co-occur on these tools, ranked by frequency
+    const relatedCounts = tools
+      .flatMap((t) => t.data.tags ?? [])
+      .filter((t) => t !== tag)
+      .reduce<Record<string, number>>((acc, t) => {
+        acc[t] = (acc[t] ?? 0) + 1;
+        return acc;
+      }, {});
+
+    const relatedTags = Object.entries(relatedCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .map(([t]) => ({ tag: t, slug: slugify(t) }));
+
+    return {
+      params: { tag: slug },
+      props: { tag, tools, relatedTags },
+    };
+  });
+}
+
+type Props = {
+  tag: string;
+  tools: CollectionEntry<"tools">[];
+  relatedTags: { tag: string; slug: string }[];
+};
+
+const { tag, tools, relatedTags } = Astro.props as Props;
+---
+<Layout
+  title={`#${tag} Tools - ToolHub`}
+  description={`${tools.length} tool${tools.length === 1 ? "" : "s"} tagged "${tag}" on ToolHub.`}
+  keywords={relatedTags.map(k=>k.tag)}
+>
+  <nav aria-label="Breadcrumb" class="mx-auto max-w-6xl px-6 pt-8 font-mono text-xs text-ink-soft">
+    <a href={`${BASE_URL}/`} class="hover:text-accent">Home</a>
+    <span class="mx-1">/</span>
+    <span class="text-ink">#{tag}</span>
+  </nav>
+
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-6xl px-6 py-10">
+      <span class="inline-block rounded-full border border-accent bg-accent/10 px-4 py-1.5 font-mono text-sm text-accent">
+        #{tag}
+      </span>
+      <p class="mt-4 font-mono text-xs text-ink-soft">
+        {tools.length} tool{tools.length === 1 ? "" : "s"} tagged <span class="text-ink">#{tag}</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-10">
+    {tools.length > 0 ? (
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {tools.map((tool) => <ToolCard tool={tool} />)}
+      </div>
+    ) : (
+      <p class="text-center text-ink-soft">No tools tagged #{tag} yet.</p>
+    )}
+  </section>
+
+  {relatedTags.length > 0 && (
+    <section class="border-t border-line bg-surface">
+      <div class="mx-auto max-w-6xl px-6 py-10">
+        <h2 class="font-mono text-xs uppercase text-ink-soft mb-4">Related tags</h2>
+        <div class="flex flex-wrap gap-2">
+          {relatedTags.map(({ tag: t, slug }) => (
+            <a
+              href={`${BASE_URL}/tag/${slug}`}
+              class="rounded-full border border-line px-3 py-1 font-mono text-xs text-ink-soft transition hover:border-accent hover:text-accent"
+            >
+              #{t}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Layout>
