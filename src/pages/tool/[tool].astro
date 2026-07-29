@@ -16,7 +16,7 @@ const { title, description, tags, category, image, url } = tool.data;
 const { Content } = await render(tool);
 ---
 
-<Layout title={`${title} — ToolHub`} description={description}>
+<Layout title={`${title} - ToolHub`} description={description} keywords={tags}>
   <main class="mx-auto max-w-3xl px-6 py-16">
     <div>
       <a href={`${BASE_URL}/`} class="font-mono text-xs text-ink-soft hover:text-accent">&larr; Back to ToolHub</a>
