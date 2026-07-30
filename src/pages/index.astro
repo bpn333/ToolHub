@@ -5,15 +5,22 @@ import { getCollection } from "astro:content";
 import { BASE_URL } from "../util/config";
 import { slugify } from "../util/slugify";
 
+const MAX_PER_CATEGORY = 12;
+const MAX_NUM_CATEGORY = 20;
+
 const allTools = await getCollection("tools");
-const categories = [...new Set(allTools.map((t) => t.data.category))].sort((a, b) =>
-  a.localeCompare(b)
-);
+const categories = [...new Set(allTools.map((t) => t.data.category))]
+  .sort((a, b) => {
+    const countA = allTools.filter((t) => t.data.category === a).length;
+    const countB = allTools.filter((t) => t.data.category === b).length;
+    return countB - countA;
+  })
+  .slice(0, MAX_NUM_CATEGORY);
 
 const grouped = categories.map((category) => ({
   category,
   tools: allTools.filter((t) => t.data.category === category),
-})).sort((a,b)=> b.tools.length - a.tools.length);
+}));
 
 const toolCount = allTools.length;
 const categoryCount = categories.length;
@@ -129,7 +136,7 @@ const toolsData = allTools.map((t) => ({
           </div>
 
           <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {tools.slice(0, 3).map((tool) => (
+            {tools.slice(0, MAX_PER_CATEGORY).map((tool) => (
               <ToolCard tool={tool} />
             ))}
           </div>
