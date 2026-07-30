@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
@@ -7,7 +6,15 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   base: "/",
   site: "https://toolhub.ext.io",
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      chunks: {
+        tools: (item) => item.url.includes("/tool/") && item,
+        categories: (item) => item.url.includes("/category/") && item,
+        tags: (item) => item.url.includes("/tag/") && item,
+      },
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
