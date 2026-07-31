@@ -9,7 +9,6 @@ tags:
   - llm
   - chatbot
   - coding
-  - reasoning
 category: AI Assistants
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Qwen_Logo.svg/1920px-Qwen_Logo.svg.png
 url: https://chat.qwen.ai

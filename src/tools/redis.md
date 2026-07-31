@@ -8,7 +8,6 @@ tags:
   - in-memory
   - key-value-store
   - message-broker
-  - open-source
 category: Databases
 url: https://redis.io
 image: https://upload.wikimedia.org/wikipedia/fr/thumb/6/6b/Redis_Logo.svg/1920px-Redis_Logo.svg.png

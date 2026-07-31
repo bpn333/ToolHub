@@ -9,7 +9,6 @@ tags:
   - llm
   - chatbot
   - coding
-  - reasoning
 category: AI Assistants
 image: https://upload.wikimedia.org/wikipedia/en/8/87/Kimi-logo-2025.png
 url: https://kimi.com

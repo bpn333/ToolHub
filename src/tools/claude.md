@@ -10,6 +10,7 @@ tags:
   - writing
   - coding
   - productivity
+  - anthropic
 category: AI Assistants
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Claude_AI_logo.svg/3840px-Claude_AI_logo.svg.png
 url: https://claude.ai

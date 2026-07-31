@@ -7,7 +7,6 @@ tags:
   - llm
   - chatbot
   - coding
-  - reasoning
   - open-source
   - artificial-intelligence
 category: AI Assistants

@@ -9,6 +9,7 @@ tags:
   - sculpting
   - vfx
   - open-source
+  - video-editing
 category: 3D & Animation
 url: https://www.blender.org
 image: https://upload.wikimedia.org/wikipedia/commons/b/bd/Blender_4.2-splash_screen.png
