@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   base: "/",
-  site: "https://toolhub.ext.io",
+  site: "https://toolhub.07032004.xyz",
   integrations: [
     sitemap({
       chunks: {
