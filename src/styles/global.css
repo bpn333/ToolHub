@@ -176,6 +176,10 @@ body {
   max-width: none;
 }
 
+.prose-toolhub :where(h2, h3, h4, h5, h6) {
+  scroll-margin-top: 5rem;
+}
+
 .prose-toolhub :where(code):not(:where(pre code)) {
   background-color: var(--color-grid);
   border-radius: 4px;

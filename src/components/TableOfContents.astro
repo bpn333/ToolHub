@@ -1,0 +1,160 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+  title?: string;
+}
+
+const { headings, title = "On this page" } = Astro.props;
+
+function normalizeHeadingSlug(value: string) {
+  return value.replace(/^-+/, "");
+}
+
+function normalizeHeadingText(value: string) {
+  return value.replace(/\p{Extended_Pictographic}/gu, "").trim();
+}
+
+type Node = Heading & { children: Heading[] };
+
+const nodes: Node[] = [];
+for (const h of headings.filter((h) => h.depth === 2 || h.depth === 3)) {
+  const slug = normalizeHeadingSlug(h.slug);
+  const text = normalizeHeadingText(h.text);
+  if (h.depth === 2) {
+    nodes.push({ ...h, slug, text, children: [] });
+  } else if (nodes.length > 0) {
+    nodes[nodes.length - 1].children.push({ ...h, slug, text });
+  }
+}
+---
+
+<nav
+  class="toc sticky top-23 max-h-[calc(100vh-6rem)] overflow-y-auto pb-8 scrollbar-thin scrollbar-thumb-accent-2"
+  aria-label="Table of contents"
+>
+  <p class="mb-3 ml-1 text-sm font-bold text-ink">{title}</p>
+
+  <div class="relative border-l border-line">
+    <!-- the flowing indicator: repositioned via JS, animated via transition classes -->
+    <div
+      id="toc-indicator"
+      class="absolute left-[-1px] w-0.5 rounded-full bg-accent opacity-0 transition-[transform,height,opacity] duration-300 ease-out"
+      style="height: 0px; transform: translateY(0px);"
+    >
+    </div>
+
+    <ul class="m-0 list-none p-0">
+      {nodes.map((node) => (
+        <li>
+          <a
+            href={`#${node.slug}`}
+            data-toc-link
+            data-slug={node.slug}
+            class="block py-2 pl-4 text-sm text-ink-soft transition-colors duration-150 hover:text-ink aria-current:font-semibold aria-current:text-ink"
+          >
+            {node.text}
+          </a>
+
+          {node.children.length > 0 && (
+            <ul class="m-0 ml-4 list-none border-l border-line p-0">
+              {node.children.map((child) => (
+                <li>
+                  <a
+                    href={`#${child.slug}`}
+                    data-toc-link
+                    data-slug={child.slug}
+                    class="block py-2 pl-4 text-[0.875rem] text-ink-soft transition-colors duration-150 hover:text-ink aria-current:font-semibold aria-current:text-ink"
+                  >
+                    {child.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function initToc() {
+    const nav = document.querySelector<HTMLElement>(".toc");
+    const rail = nav?.querySelector<HTMLElement>(".relative");
+    const indicator = document.getElementById("toc-indicator");
+    const links = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]")
+    );
+    if (!nav || !rail || !indicator || links.length === 0) return;
+
+    function getHeadingElement(slug: string | undefined) {
+      return (
+        (slug && document.getElementById(slug)) ||
+        (slug && document.getElementById(`-${slug}`)) ||
+        null
+      );
+    }
+
+    const targets = links
+      .map((link) => {
+        const slug = link.dataset.slug;
+        const el = getHeadingElement(slug);
+        if (el && slug && el.id !== slug) {
+          el.id = slug;
+        }
+        return el ? { link, el } : null;
+      })
+      .filter((t): t is { link: HTMLAnchorElement; el: HTMLElement } => t !== null);
+
+    function moveIndicatorTo(link: HTMLAnchorElement) {
+      const railTop = rail.getBoundingClientRect().top;
+      const linkRect = link.getBoundingClientRect();
+      const top = linkRect.top - railTop + rail.scrollTop;
+
+      indicator!.style.transform = `translateY(${top}px)`;
+      indicator!.style.height = `${linkRect.height}px`;
+      indicator!.style.opacity = "1";
+    }
+
+    function setActive(slug: string | null) {
+      for (const link of links) {
+        const isActive = link.dataset.slug === slug;
+        link.toggleAttribute("aria-current", isActive);
+        if (isActive) moveIndicatorTo(link);
+      }
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visible.length > 0) {
+          setActive((visible[0].target as HTMLElement).id);
+        }
+      },
+      { rootMargin: "-80px 0px -70% 0px", threshold: 0 }
+    );
+
+    for (const { el } of targets) observer.observe(el);
+
+    if (targets.length > 0) setActive(targets[0].el.id);
+
+    // keep the indicator aligned on resize (line-wrapped labels change height)
+    const resizeObserver = new ResizeObserver(() => {
+      const active = links.find((l) => l.hasAttribute("aria-current"));
+      if (active) moveIndicatorTo(active);
+    });
+    resizeObserver.observe(document.body);
+  }
+
+  initToc();
+  document.addEventListener("astro:page-load", initToc);
+</script>
