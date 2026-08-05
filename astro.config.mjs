@@ -8,10 +8,11 @@ export default defineConfig({
   site: "https://toolhub.07032004.xyz",
   integrations: [
     sitemap({
+      filter: (page) => !page.includes("/tag/"),
       chunks: {
         tools: (item) => item.url.includes("/tool/") && item,
         categories: (item) => item.url.includes("/category/") && item,
-        tags: (item) => item.url.includes("/tag/") && item,
+        // tags: (item) => item.url.includes("/tag/") && item,
       },
     }),
   ],
