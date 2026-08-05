@@ -55,7 +55,7 @@ const { Content, headings } = await render(tool);
             <a
               href={url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               class="rounded-md border-2 border-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent"
             >
               Open Website
@@ -78,13 +78,14 @@ const { Content, headings } = await render(tool);
       <TableOfContents headings={headings} />
     </aside>
   </div>
-</Layout>
 
-<script define:vars={{toolId: tool.id}}>
-  function addRecent(id) {
-    const current = JSON.parse(localStorage.getItem("toolhub:recentlyViewed") ?? "[]")?.filter((h) => h !== id);
-    current.unshift(id);
-    localStorage.setItem("toolhub:recentlyViewed", JSON.stringify(current.slice(0, 6)));
-  }
-  addRecent(toolId);
-</script>
+  <script define:vars={{toolId: tool.id}}>
+    function addRecent(id) {
+      const current = JSON.parse(localStorage.getItem("toolhub:recentlyViewed") ?? "[]")?.filter((h) => h !== id);
+      current.unshift(id);
+      localStorage.setItem("toolhub:recentlyViewed", JSON.stringify(current.slice(0, 6)));
+    }
+    addRecent(toolId);
+  </script>
+  
+</Layout>
