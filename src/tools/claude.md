@@ -6,7 +6,6 @@ tags:
   - ai
   - llm
   - chatbot
-  - artificial-intelligence
   - writing
   - coding
   - productivity

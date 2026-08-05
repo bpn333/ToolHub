@@ -5,6 +5,7 @@ tags:
   - neovim
   - vim
   - text-editor
+  - code-editor
   - terminal
   - open-source
   - lua

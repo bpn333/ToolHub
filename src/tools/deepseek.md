@@ -8,7 +8,6 @@ tags:
   - chatbot
   - coding
   - open-source
-  - artificial-intelligence
 category: AI Assistants
 image: https://upload.wikimedia.org/wikipedia/commons/e/ec/DeepSeek_logo.svg
 url: https://www.deepseek.com

@@ -3,7 +3,7 @@ title: Streamlabs
 description: Livestreaming software and creator platform with overlays, alerts, widgets, and tools for streaming to Twitch, YouTube, and other platforms.
 tags:
   - streamlabs
-  - live-streaming
+  - streaming
   - broadcasting
   - overlays
   - alerts

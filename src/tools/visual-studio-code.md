@@ -4,6 +4,7 @@ description: Free, lightweight, and highly extensible source code editor from Mi
 tags:
   - vscode
   - code-editor
+  - text-editor
   - ide
   - microsoft
   - extensions

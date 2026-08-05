@@ -10,6 +10,7 @@ tags:
   - python
   - keras
   - open-source
+  - gpu
 category: AI Development
 image: https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg
 url: https://www.tensorflow.org

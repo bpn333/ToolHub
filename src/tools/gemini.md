@@ -7,7 +7,6 @@ tags:
   - ai
   - llm
   - chatbot
-  - artificial-intelligence
   - writing
   - coding
 category: AI Assistants

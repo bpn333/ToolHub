@@ -4,6 +4,7 @@ description: Free and open-source network scanning tool for host discovery, port
 tags:
   - nmap
   - network-scanning
+  - networking
   - security
   - port-scanning
   - open-source

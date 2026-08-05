@@ -4,8 +4,8 @@ description: Industry-standard 3D computer animation software used for modeling,
 tags:
   - maya
   - autodesk
-  - 3d-animation
-  - modeling
+  - animation
+  - 3d-modeling
   - rigging
   - vfx
   - rendering

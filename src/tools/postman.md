@@ -7,7 +7,6 @@ tags:
   - api-testing
   - rest
   - graphql
-  - development
   - collaboration
 category: Developer Tools
 image: https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png

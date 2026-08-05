@@ -3,11 +3,11 @@ title: HandBrake
 description: Free and open-source video transcoder for converting video from nearly any format into modern, widely supported formats.
 tags:
   - handbrake
-  - video-transcoding
+  - transcoding
   - video-conversion
   - open-source
   - compression
-  - media-processing
+  - media
 category: Media Processing
 url: https://handbrake.fr
 image: https://upload.wikimedia.org/wikipedia/commons/d/d9/HandBrake_Icon.png

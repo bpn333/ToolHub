@@ -3,6 +3,7 @@ title: Figma
 description: Collaborative, browser-based design tool for UI/UX design, prototyping, wireframing, and design systems.
 tags:
   - figma
+  - design
   - ui-design
   - ux-design
   - prototyping

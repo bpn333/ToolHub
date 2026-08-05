@@ -4,8 +4,6 @@ description: Free and open-source distributed version control system for trackin
 tags:
   - git
   - version-control
-  - vcs
-  - source-control
   - open-source
   - collaboration
   - command-line
