@@ -24,7 +24,7 @@ const { Content, headings } = await render(tool);
       <nav aria-label="Breadcrumb" class="mx-auto max-w-6xl pb-3 font-mono text-xs text-ink-soft">
         <a href={`${BASE_URL}/`} class="hover:text-accent">Home</a>
         <span class="mx-1">/</span>
-        <a href={`${BASE_URL}/category/${slugify(category)}`} class="hover:text-accent">{category}</a>
+        <a href={`${BASE_URL}/category/${slugify(category)}/`} class="hover:text-accent">{category}</a>
         <span class="mx-1">/</span>
         <span class="text-ink">{title}</span>
       </nav>
@@ -70,7 +70,7 @@ const { Content, headings } = await render(tool);
 
       {tags.length > 0 && (
         <div class="mt-10 flex flex-wrap gap-2">
-          {tags.map((tag) => <a href={`${BASE_URL}/tag/${slugify(tag)}`}><span class="font-mono text-xs text-ink-soft hover:text-accent">#{tag}</span></a>)}
+          {tags.map((tag) => <a href={`${BASE_URL}/tag/${slugify(tag)}/`}><span class="font-mono text-xs text-ink-soft hover:text-accent">#{tag}</span></a>)}
         </div>
       )}
     </section>

@@ -1,7 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import ToolCard from "../../components/ToolCard.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import ToolCard from "../../components/ToolCard.astro";
+import Layout from "../../layouts/Layout.astro";
 import { BASE_URL } from "../../util/config";
 import { slugify } from "../../util/slugify";
 
@@ -82,7 +82,7 @@ const { category, tools, topTags, otherCategories } = Astro.props as Props;
       <div class="flex flex-wrap gap-2 justify-center">
         {otherCategories.map(({ category: c, slug, count }) => (
           <a
-            href={`${BASE_URL}/category/${slug}`}
+            href={`${BASE_URL}/category/${slug}/`}
             class="category-chip"
             title={`${count} tool${count === 1 ? "" : "s"}`}
           >

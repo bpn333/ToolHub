@@ -35,7 +35,7 @@ const toolsData = allTools.map((t) => ({
   category: t.data.category,
   image: t.data.image ?? null,
   url: t.data.url ?? null,
-  href: `${BASE_URL}/tool/${t.id}`,
+  href: `${BASE_URL}/tool/${t.id}/`,
 }));
 ---
 
@@ -128,7 +128,7 @@ const toolsData = allTools.map((t) => ({
             <span class="h-px flex-1 bg-line"></span>
 
             <a
-              href={`${BASE_URL}/category/${slugify(category)}`}
+              href={`${BASE_URL}/category/${slugify(category)}/`}
               class="font-mono text-xs text-accent hover:underline"
             >
               View all ({tools.length}) →
