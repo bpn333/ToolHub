@@ -47,7 +47,7 @@ const toolsData = allTools.map((t) => ({
       <div class="pointer-events-none absolute inset-0 overflow-hidden blueprint-grid"></div>
 
       <div class="relative mx-auto max-w-6xl px-6 py-20 sm:py-28">
-        <div class="relative mx-auto max-w-3xl border border-line bg-surface/70 px-8 py-12 backdrop-blur sm:px-14 sm:py-16">
+        <div class="relative mx-auto max-w-3xl border-2 border-line bg-surface px-8 py-12 shadow-[8px_8px_0_var(--color-ink)] sm:px-14 sm:py-16">
           <span class="crop-mark tl"></span>
           <span class="crop-mark tr"></span>
           <span class="crop-mark bl"></span>
@@ -75,11 +75,11 @@ const toolsData = allTools.map((t) => ({
               type="text"
               autocomplete="off"
               placeholder="Search tools, tags, categories…"
-              class="w-full rounded-md border border-line bg-surface py-3 pl-11 pr-4 font-body text-sm text-ink placeholder:text-ink-soft outline-none transition focus:border-accent"
+              class="w-full border-2 border-line bg-surface py-3 pl-11 pr-4 font-body text-sm text-ink placeholder:text-ink-soft outline-none transition focus:border-accent-2"
             />
             <ul
               id="search-suggestions"
-              class="absolute left-0 right-0 top-full z-50 mt-2 hidden max-h-80 overflow-y-auto rounded-md border border-line bg-surface shadow-xl"
+              class="absolute left-0 right-0 top-full z-50 mt-2 hidden max-h-80 overflow-y-auto border-2 border-line bg-surface shadow-[6px_6px_0_var(--color-ink)]"
             ></ul>
           </div>
 
@@ -91,7 +91,7 @@ const toolsData = allTools.map((t) => ({
     </section>
 
     <!-- RECENTLY VIEWED -->
-    <section id="recent-section" class="hidden border-b border-line bg-surface">
+    <section id="recent-section" class="hidden border-b-2 border-line bg-surface">
       <div class="mx-auto max-w-6xl px-6 py-10">
         <div class="mb-6 flex items-center gap-4">
           <span class="index-tab">Recently Viewed</span>
@@ -105,7 +105,7 @@ const toolsData = allTools.map((t) => ({
     </section>
 
     <!-- CATEGORY CHIPS -->
-    <section class="border-y border-line bg-surface">
+    <section class="border-y-2 border-line bg-surface">
       <div class="mx-auto flex max-w-6xl gap-2 overflow-x-auto scrollbar-thin scrollbar-thumb-accent-2 scrollbar-track-surface px-6 py-4 whitespace-nowrap">
         <button class="category-chip is-active" data-category="all">All</button>
         {categories.map((category) => (
@@ -115,7 +115,7 @@ const toolsData = allTools.map((t) => ({
     </section>
 
     <!-- TOOL LISTING -->
-    <section class="mx-auto max-w-6xl px-6 py-16">
+    <section class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
       <div id="empty-state" class="hidden py-20 text-center">
         <p class="font-display text-lg font-semibold text-ink">No tools match that search.</p>
         <p class="mt-2 text-sm text-ink-soft">Try a different keyword or clear the filters.</p>

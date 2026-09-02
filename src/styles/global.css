@@ -4,29 +4,29 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-display: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-display: "Archivo Black", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "Space Mono", monospace;
 
-  --color-paper: #f4f7fb;
-  --color-surface: #ffffff;
-  --color-ink: #10233f;
-  --color-ink-soft: #4a5c78;
-  --color-accent: #ff6a2c;
-  --color-accent-2: #1f9a8e;
-  --color-line: #b9c6da;
-  --color-grid: #e2e9f3;
+  --color-paper: #f4f0e6;
+  --color-surface: #fffdf7;
+  --color-ink: #171717;
+  --color-ink-soft: #5a554b;
+  --color-accent: #c2410c;
+  --color-accent-2: #075bff;
+  --color-line: #171717;
+  --color-grid: #ded8ca;
 }
 
 .dark {
-  --color-paper: #0b1a2e;
-  --color-surface: #12233b;
-  --color-ink: #e7eef9;
-  --color-ink-soft: #93a6c4;
-  --color-accent: #ff7a45;
-  --color-accent-2: #34d6c4;
-  --color-line: #23385a;
-  --color-grid: #14273f;
+  --color-paper: #171717;
+  --color-surface: #242424;
+  --color-ink: #fffdf7;
+  --color-ink-soft: #c9c2b5;
+  --color-accent: #d95d2b;
+  --color-accent-2: #67a0ff;
+  --color-line: #fffdf7;
+  --color-grid: #303030;
 }
 
 html {
@@ -37,24 +37,62 @@ html.dark {
 }
 
 body {
+  min-width: 320px;
+  background-image: radial-gradient(var(--color-grid) 1px, transparent 1px);
+  background-size: 14px 14px;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
 }
 
+a {
+  transition: color 0.15s ease;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent-2);
+  outline-offset: 3px;
+}
+
+.site-footer {
+  background-color: #171717;
+  border-top-color: #171717;
+  color: #fffdf7;
+}
+
+.site-footer .text-ink-soft {
+  color: #c9c2b5;
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 2px solid #171717;
+  background: #171717;
+  color: #fffdf7;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  box-shadow: 3px 3px 0 var(--color-accent-2);
+}
+
 @layer components {
   .blueprint-grid {
     background-image:
-      linear-gradient(var(--color-grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
-    background-size: 32px 32px;
+      linear-gradient(var(--color-grid) 2px, transparent 2px),
+      linear-gradient(90deg, var(--color-grid) 2px, transparent 2px);
+    background-size: 28px 28px;
   }
 
   .crop-mark {
     position: absolute;
     width: 18px;
     height: 18px;
-    border-color: var(--color-ink-soft);
+    border-color: var(--color-ink);
   }
   .crop-mark.tl {
     top: -1px;
@@ -86,30 +124,30 @@ body {
     font-size: 0.72rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--color-ink);
-    background-color: color-mix(
-      in srgb,
-      var(--color-accent-2) 14%,
-      transparent
-    );
-    border: 1px solid var(--color-accent-2);
-    border-radius: 3px;
+    color: #171717;
+    border: 2px solid var(--color-ink);
+    border-radius: 0;
     padding: 0.32rem 0.7rem;
     white-space: nowrap;
     display: inline-block;
+    background-color: var(--color-accent);
+    box-shadow: 4px 4px 0 var(--color-ink);
   }
 
   .btn-primary {
     font-family: var(--font-display);
     font-weight: 600;
     background-color: var(--color-accent);
-    color: var(--color-ink);
-    border-radius: 4px;
+    color: #171717;
+    border: 2px solid var(--color-ink);
+    border-radius: 0;
     padding: 0.7rem 1.4rem;
-    transition: transform 0.15s ease;
+    box-shadow: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
   .btn-primary:hover {
-    transform: translateY(-1px);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--color-ink);
   }
 
   .category-chip {
@@ -119,25 +157,26 @@ body {
     text-transform: uppercase;
     color: var(--color-ink-soft);
     background-color: var(--color-surface);
-    border: 1px solid var(--color-line);
-    border-radius: 3px;
+    border: 2px solid var(--color-line);
+    border-radius: 0;
     padding: 0.4rem 0.85rem;
     cursor: pointer;
     transition: all 0.15s ease;
   }
   .category-chip.is-active,
   .category-chip:hover {
-    color: var(--color-ink);
+    color: #171717;
     border-color: var(--color-accent);
-    background-color: color-mix(in srgb, var(--color-accent) 12%, transparent);
+    background-color: var(--color-accent);
+    box-shadow: 3px 3px 0 var(--color-ink);
   }
 
   .tool-card {
     display: flex;
     flex-direction: column;
     background-color: var(--color-surface);
-    border: 1px solid var(--color-line);
-    border-radius: 6px;
+    border: 2px solid var(--color-line);
+    border-radius: 0;
     overflow: hidden;
     transition:
       transform 0.15s ease,
@@ -145,11 +184,30 @@ body {
       box-shadow 0.15s ease;
   }
   .tool-card:hover {
-    transform: translateY(-3px);
+    transform: translate(-3px, -3px);
     border-color: var(--color-accent-2);
-    box-shadow: 0 8px 24px -12px
-      color-mix(in srgb, var(--color-ink) 30%, transparent);
+    box-shadow: 7px 7px 0 var(--color-accent-2);
   }
+
+  .tool-card:focus-visible {
+    transform: translate(-3px, -3px);
+    border-color: var(--color-accent);
+    box-shadow: 7px 7px 0 var(--color-accent);
+  }
+}
+
+input,
+button,
+a,
+img,
+pre,
+table {
+  border-radius: 0 !important;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-ink);
 }
 
 /*
@@ -182,7 +240,7 @@ body {
 
 .prose-toolhub :where(code):not(:where(pre code)) {
   background-color: var(--color-grid);
-  border-radius: 4px;
+  border-radius: 0;
   padding: 0.15rem 0.4rem;
   font-family: var(--font-mono);
   font-weight: 500;
@@ -194,8 +252,8 @@ body {
 
 .prose-toolhub pre {
   background-color: var(--color-grid);
-  border: 1px solid var(--color-line);
-  border-radius: 6px;
+  border: 2px solid var(--color-line);
+  border-radius: 0;
 }
 
 .prose-toolhub table {
@@ -203,4 +261,10 @@ body {
 }
 .prose-toolhub thead {
   border-bottom-color: var(--color-line);
+}
+
+.prose-toolhub :where(h2, h3) {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
