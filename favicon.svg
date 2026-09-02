@@ -1,15 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#111827"/>
-
-  <text
-    x="50%"
-    y="54%"
-    text-anchor="middle"
-    dominant-baseline="middle"
-    font-family="Inter, Arial, sans-serif"
-    font-size="30"
-    font-weight="800"
-    fill="#ffffff">
-    TH
-  </text>
+  <rect width="64" height="64" fill="#c2410c"/>
+  <rect x="8" y="8" width="48" height="48" fill="#171717"/>
+  <path d="M16 20h32v7H37v17h-9V27H16z" fill="#fffdf7"/>
+  <path d="M40 20h8v24h-8z" fill="#075bff"/>
 </svg>
