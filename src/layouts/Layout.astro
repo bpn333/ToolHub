@@ -61,7 +61,7 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
@@ -75,15 +75,16 @@ const {
     </script>
   </head>
   <body class="bg-paper text-ink font-body antialiased">
-    <header class="sticky top-0 z-30 border-b border-line bg-paper/90 backdrop-blur">
+    <header class="sticky top-0 z-30 border-b-2 border-line bg-accent">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href={`${BASE_URL}/`} class="font-display text-2xl font-bold tracking-tight text-ink">
-          Tool<span class="text-accent">Hub</span>
+        <a href={`${BASE_URL}/`} class="flex items-center gap-3 font-display text-2xl tracking-tight text-ink">
+          <span class="logo-mark" aria-hidden="true">TH</span>
+          <span>Tool<span class="text-accent-2">Hub</span></span>
         </a>
         <button
           id="theme-toggle"
           aria-label="Toggle color theme"
-          class="flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-line text-ink transition hover:border-accent"
+          class="flex h-10 w-10 cursor-pointer items-center justify-center border-2 border-line bg-surface text-ink transition hover:bg-accent-2 hover:text-surface"
         >
           <svg class="dark:hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="4" />
@@ -98,7 +99,7 @@ const {
     <main>
       <slot />
     </main>
-    <footer class="border-t border-line py-8">
+    <footer class="site-footer border-t-2 py-8">
       <div class="mx-auto max-w-6xl px-6 text-center font-mono text-xs text-ink-soft">
         ToolHub - Find the right tool, fast | by <a target="_blank" href="https://bpn.07032004.xyz" class="text-accent-2 hover:text-accent">bpn333</a>
       </div>
