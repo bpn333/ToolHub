@@ -40,11 +40,11 @@ for (const h of headings.filter((h) => h.depth === 2 || h.depth === 3)) {
 >
   <p class="mb-3 ml-1 text-sm font-bold text-ink">{title}</p>
 
-  <div class="relative border-l border-line">
+  <div class="relative border-l-4 border-grid">
     <!-- the flowing indicator: repositioned via JS, animated via transition classes -->
     <div
       id="toc-indicator"
-      class="absolute left-[-1px] w-0.5 rounded-full bg-accent opacity-0 transition-[transform,height,opacity] duration-300 ease-out"
+      class="absolute left-[-4px] w-1 rounded-full bg-accent opacity-0 transition-[transform,height,opacity] duration-300 ease-out"
       style="height: 0px; transform: translateY(0px);"
     >
     </div>
